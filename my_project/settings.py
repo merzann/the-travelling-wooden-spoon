@@ -90,7 +90,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://https://8000-merzann-thetravellingwo-5t97fn2n60b.ws-eu117.gitpod.io/",
+    "https://8000-merzann-thetravellingwo-5t97fn2n60b.ws-eu117.gitpod.io",
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com/",
 ]

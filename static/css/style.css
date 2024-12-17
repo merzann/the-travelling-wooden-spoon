@@ -28,6 +28,10 @@ nav {
     padding: 0 0.5em;
 }
 
+li.nav-item a {
+    color: rgb(203, 177, 152) !important;
+}
+
 .navbar-light .navbar-nav .nav-link.active {
     color: #f8f9fa !important;
 }
@@ -65,7 +69,7 @@ button.navbar-toggler {
 }
 
 .hero-content p {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 1em 0;
     color: #fff;
 }
@@ -78,6 +82,11 @@ button.navbar-toggler {
     text-decoration: none;
     border-radius: 5px;
     margin-top: 1em;
+}
+
+.btn-hero:hover {
+    background-color: #e74716;
+    color: black;
 }
 
 section {
@@ -121,6 +130,17 @@ footer {
     .hero-content {
         max-width: 70%;
         margin-top: 6.25rem;
+    }
+
+    .hero-content h1 {
+        font-size: 4em;
+        margin: 0;
+    }
+    
+    .hero-content p {
+        font-size: 1.5em;
+        margin: 1em 0;
+        color: #fff;
     }
         
     /* recipe-detailed page */
