@@ -1,0 +1,66 @@
+html,
+body {
+    font-family: "Inter", sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    font-family: "Indie Flower", cursive;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    margin: auto;
+    padding: 0.5em;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #f8f9fa !important;
+}
+
+button.navbar-toggler {
+    border-color: #f8f9fa !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Hero Section Styling */
+.hero {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 50px 20px;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn-custom {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+.btn-custom:hover {
+    background-color: #e65a4f;
+    color: #fff;
+}
+
+.section-title {
+    color: #ff6f61;
+    margin-bottom: 30px;
+}
+
+/* footer */
+footer {
+    background-color: #333;
+    color: #ddd;
+    text-align: center;
+    padding: 1em 0;
+}
