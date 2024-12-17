@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import Recipe, HomepageFeature, BlogPost
+from .models import Category, Recipe, HomepageFeature, BlogPost
 
 # Create your views here.
 
-# Homepage View
+# displays content on homepage
 def homepage(request):
     # Query data for homepage sections
     featured_recipes = HomepageFeature.objects.select_related('recipe')[:3]  # Limit to 3 featured recipes
@@ -19,4 +19,13 @@ def homepage(request):
         'latest_blog_posts': latest_blog_posts,
     }
     return render(request, 'blog/index.html', context)
+
+
+ # displays all posted recipes sorted in categries on category.html
+def category_view(request, category_name):
+    # Get the category object by name
+    category = get_object_or_404(Category, name=category_name)
+    # Fetch all recipes under this category
+    recipes = Recipe.objects.filter(category=category)
+    return render(request, 'category.html', {'category': category, 'recipes': recipes})
 

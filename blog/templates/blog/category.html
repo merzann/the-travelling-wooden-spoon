@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+
+    <!-- Recipes Section -->
+    <section class="recipes-by-category">
+        <h2>Recipes from {{ category.name }}</h2>
+        <div class="recipe-grid">
+            {% for recipe in recipes %}
+                <article class="recipe">
+                    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+                    <h3>{{ recipe.title }}</h3>
+                    <p>{{ recipe.description|truncatewords:20 }}</p>
+                    <a href="#" class="btn">Read More</a>
+                </article>
+            {% empty %}
+                <p>No recipes available for this category.</p>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+
+{% endblock %}
