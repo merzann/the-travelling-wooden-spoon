@@ -29,3 +29,24 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# HomepageFeature model to manage featured recipes displayed on homepage
+class HomepageFeature(models.Model):
+    recipe = models.OneToOneField('Recipe', on_delete=models.CASCADE, related_name='featured')
+    excerpt = models.TextField(max_length=100)
+
+    def __str__(self):
+        return f"Featured: {self.recipe.title}"
+
+
+# Blogpost model to store blogs for latest-blog-post-section
+class BlogPost(models.Model):
+    title = models.CharField(max_length=200)
+    snippet = models.TextField(max_length=300)
+    content = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
