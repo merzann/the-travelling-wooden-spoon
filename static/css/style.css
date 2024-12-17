@@ -11,11 +11,21 @@ h2 {
     font-family: "Indie Flower", cursive;
 }
 
-nav {
+/* Main Section */
+header {
+    height: 10vh;
     background-color: #333;
-    color: white;
+    color: #ddd;
+    padding: 20px 10px;
+}
+
+/* Navbar*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: auto;
-    padding: 0.5em;
+    padding: 0 0.5em;
 }
 
 .navbar-light .navbar-nav .nav-link.active {
@@ -30,25 +40,58 @@ button.navbar-toggler {
     filter: invert(1);
 }
 
-/* Hero Section Styling */
+/* Hero Section */
 .hero {
+    background-image: url('/static/images/background.jpeg');
+    background-size: cover;
+    background-position: center center;
+    min-height: 90vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #370a0a;
     text-align: center;
-    background-color: #f8f9fa;
-    padding: 50px 20px;
 }
 
-.hero img {
-    max-width: 100%;
-    height: auto;
+.hero-content {
+    max-width: 800px;
+    margin: 6.25rem auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin: 1em 0;
+    color: #fff;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #e74716;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+section {
+    padding: 2em 1em;
+    text-align: center;
 }
 
 .btn-custom {
-    background-color: #ff6f61;
+    background-color: #e74716;
     color: #fff;
 }
 
 .btn-custom:hover {
-    background-color: #e65a4f;
+    background-color: #e74716;
     color: #fff;
 }
 
@@ -63,4 +106,56 @@ footer {
     color: #ddd;
     text-align: center;
     padding: 1em 0;
+}
+
+/* Media Query */
+  
+@media (min-width: 768px) {
+
+    /* hero section */
+    .hero {
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 95vh;
+    }
+
+    .hero-content {
+        max-width: 70%;
+        margin-top: 6.25rem;
+    }
+        
+    /* recipe-detailed page */
+    .recipe-detail h1 {
+        text-align: center;
+    }
+
+    .preparation {
+        list-style-type: none;
+        background: #f4f4f4;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        width: 60%;
+    }
+}
+
+@media (min-width: 1200px) {
+    
+    /* Hero Section */
+    .container{
+        margin-bottom: 18.75rem;
+    }
+
+    .hero-content {
+        margin-top: 8.25rem;
+    }
+
+    .hero-content h1 {
+        font-size: 5em;
+        margin: 0;
+    }
+    
+    .hero-content p {
+        font-size: 2em;
+        margin: 1em 0;
+        color: #fff;
+    }
 }
