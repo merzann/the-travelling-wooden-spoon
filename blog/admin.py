@@ -5,9 +5,9 @@ from .models import Category, Recipe, HomepageFeature, BlogPost
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'status', 'popularity_score', 'date')
-    list_filter = ('status', 'category')  # Filter by category and status
-    search_fields = ('title', 'description')  # Enable search
-    prepopulated_fields = {'excerpt': ('description',)}  # Auto-generate excerpt from description
+    list_filter = ('status', 'category') 
+    search_fields = ('title', 'description')
+    prepopulated_fields = {'excerpt': ('description',)}
 
 
 # CategoryAdmin for managing recipe categories

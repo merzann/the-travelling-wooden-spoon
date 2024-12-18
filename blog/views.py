@@ -36,17 +36,13 @@ def category_view(request, category_name):
     return render(request, 'blog/category.html', {'category': category, 'recipes': recipes})
 
 
-# displays recipe details
+# display recipe details on recipe_detail.html
+from django.db.models import Avg
+
 def recipe_detail(request, recipe_id):
+    # Fetch the recipe by ID
     recipe = get_object_or_404(Recipe, id=recipe_id)
-    average_rating = recipe.calculate_average_rating()
-    total_votes = recipe.total_votes()
-    
-    context = {
+    return render(request, 'blog/recipe_detail.html', {
         'recipe': recipe,
-        'thumbs_up': recipe.thumbs_up,
-        'thumbs_down': recipe.thumbs_down,
-        'average_rating': average_rating,
-        'total_votes': total_votes,
-    }
-    return render(request, 'blog/recipe_detail.html', context)
+    })
+
