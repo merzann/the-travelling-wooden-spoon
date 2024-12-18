@@ -21,13 +21,21 @@ def homepage(request):
     return render(request, 'blog/index.html', context)
 
 
- # displays all posted recipes sorted in categries on category.html
+# displays all posted recipes sorted in categries on category.html
+from django.shortcuts import render
+from .models import Recipe
+
+def recipes_view(request):
+    recipes = Recipe.objects.all()
+    return render(request, 'blog/category.html', {'recipes': recipes})
+
+
 def category_view(request, category_name):
     # Get the category object by name
     category = get_object_or_404(Category, name=category_name)
     # Fetch all recipes under this category
     recipes = Recipe.objects.filter(category=category)
-    return render(request, 'category.html', {'category': category, 'recipes': recipes})
+    return render(request, 'blog/category.html', {'category': category, 'recipes': recipes})
 
 
 # Recipe_detail model to display/view recipe details
