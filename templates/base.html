@@ -48,10 +48,16 @@
                             <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                                 href="{% url 'home' %}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == recipes_url %}active{% endif %}"
-                                aria-current="page" href="{% url 'recipes_view' %}">Recipes</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Recipes
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for category in categories %}
+                                    <li><a class="dropdown-item" href="{% url 'category_view' category.name %}">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>                        
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page"
                                 href="#">About</a>
