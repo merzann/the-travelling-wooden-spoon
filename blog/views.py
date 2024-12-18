@@ -58,6 +58,7 @@ def recipe_detail(request, recipe_id):
     context = {
         "recipe": recipe,
         "average_rating": recipe.calculate_average_rating(),
+        'comments': comments,
     }
 
     return render(request, "blog/recipe_detail.html", context)

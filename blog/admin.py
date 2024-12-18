@@ -30,3 +30,22 @@ class BlogPostAdmin(admin.ModelAdmin):
     list_display = ('title', 'date')
     search_fields = ('title', 'snippet')
     ordering = ('-date',)
+
+
+# CommentAdmin for managing comments
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('recipe', 'user', 'approved', 'timestamp')
+    list_filter = ('approved', 'timestamp')  # Filter by approval status and timestamp
+    search_fields = ('user', 'text')
+    actions = ['approve_comments', 'disapprove_comments']  # Custom actions
+
+    # Custom action to approve comments
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
+    approve_comments.short_description = "Approve selected comments"
+
+    # Custom action to disapprove comments
+    def disapprove_comments(self, request, queryset):
+        queryset.update(approved=False)
+    disapprove_comments.short_description = "Disapprove selected comments"

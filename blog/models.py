@@ -61,3 +61,14 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
 
+
+# Comment model to allows users to add, view, and manage comments on recipes
+class Comment(models.Model):
+    recipe = models.ForeignKey('Recipe', on_delete=models.CASCADE, related_name='comments')
+    user = models.CharField(max_length=100)  # Replace with ForeignKey(User) if user authentication is added
+    text = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Comment by {self.user} on {self.recipe.title}"
