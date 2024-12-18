@@ -30,10 +30,17 @@ def recipes_view(request):
 
 
 def category_view(request, category_name):
-    # Get the category object by name
     category = get_object_or_404(Category, name=category_name)
-    # Fetch all recipes under this category
     recipes = Recipe.objects.filter(category=category)
+
+    for recipe in recipes:
+        recipe.average_rating = recipe.calculate_average_rating()
+
+    context = {
+        "category": category,
+        "recipes": recipes,
+    }
+
     return render(request, 'blog/category.html', {'category': category, 'recipes': recipes})
 
 
@@ -52,6 +59,5 @@ def recipe_detail(request, recipe_id):
         "recipe": recipe,
         "average_rating": recipe.calculate_average_rating(),
     }
-    print("Average Rating:", recipe.calculate_average_rating())
 
     return render(request, "blog/recipe_detail.html", context)

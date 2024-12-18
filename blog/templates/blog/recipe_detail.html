@@ -19,9 +19,11 @@
                         {% with avg=average_rating|floatformat:"0" %}
                             {% for i in "12345" %}
                                 {% if forloop.counter <= avg|add:"0" %}
-                                    <span class="text-warning fs-4">&#9733;</span> <!-- Solid star (★) -->
+                                    <!-- Solid star (★) -->
+                                    <span class="text-warning fs-4">&#9733;</span>
                                 {% else %}
-                                    <span class="text-secondary fs-4">&#9734;</span> <!-- Empty star (☆) -->
+                                    <!-- Empty star (☆) -->
+                                    <span class="text-secondary fs-4">&#9734;</span>
                                 {% endif %}
                             {% endfor %}
                         {% endwith %}
