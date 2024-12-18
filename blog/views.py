@@ -49,4 +49,4 @@ def recipe_detail(request, recipe_id):
         'average_rating': average_rating,
         'total_votes': total_votes,
     }
-    return render(request, 'recipe_detail.html', context)
+    return render(request, 'blog/recipe_detail.html', context)
