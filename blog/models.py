@@ -14,6 +14,7 @@ class Category(models.Model):
 # Recipe model
 """
 stores all information about recipes
+calculate and return rating
 """
 class Recipe(models.Model):
     STATUS = (
@@ -23,12 +24,19 @@ class Recipe(models.Model):
 
     title = models.CharField(max_length=200)
     description = models.TextField()
-    excerpt = models.TextField(max_length=300, blank=True, null=True)  # For homepage
+    excerpt = models.TextField(max_length=300, blank=True, null=True)
     image = CloudinaryField('image', null=True, blank=True)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, related_name='recipes')
     date = models.DateTimeField(auto_now_add=True)
     popularity_score = models.IntegerField(default=0)
-    status = models.IntegerField(choices=STATUS, default=0)  # Draft by default
+    status = models.IntegerField(choices=STATUS, default=0)
+    total_rating = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
+    rating_count = models.IntegerField(default=0)
+
+    def calculate_average_rating(self):
+        if self.rating_count > 0:
+            return round(self.total_rating / self.rating_count, 2)
+        return 0.0
 
     def __str__(self):
         return self.title

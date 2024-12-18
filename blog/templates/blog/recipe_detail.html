@@ -5,6 +5,21 @@
 <main>
     <article class="recipe-detail">
         <h1>{{ recipe.title }}</h1>
+        <div>
+            <p>Rating: {{ average_rating }} ({{ recipe.rating_count }} votes)</p>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <label for="rating">Rate this recipe:</label>
+            <select name="rating" id="rating" required>
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+            <button type="submit">Submit Rating</button>
+        </form>
         <section class="recipe-info">
             <img src="{{ recipe.image.url }}" alt="Recipe Image">
             <p>{{ recipe.description }}</p>

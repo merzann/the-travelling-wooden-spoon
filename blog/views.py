@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Recipe, HomepageFeature, BlogPost
+from django.db.models import Avg
 
 # Create your views here.
 
@@ -7,7 +8,7 @@ from .models import Category, Recipe, HomepageFeature, BlogPost
 def homepage(request):
     # Query data for homepage sections
     categories = Category.objects.all()
-    featured_recipes = HomepageFeature.objects.select_related('recipe')[:3]
+    featured_recipes = HomepageFeature.objects.select_related('recipe').order_by('-recipe__total_rating')[:3]
     latest_recipes = Recipe.objects.filter(status=1).order_by('-date')[:3]
     popular_recipes = Recipe.objects.filter(status=1).order_by('-popularity_score')[:3]
     latest_blog_posts = BlogPost.objects.all().order_by('-date')[:3]
@@ -36,13 +37,19 @@ def category_view(request, category_name):
     return render(request, 'blog/category.html', {'category': category, 'recipes': recipes})
 
 
-# display recipe details on recipe_detail.html
-from django.db.models import Avg
-
+# display recipe details and rating on recipe_detail.html
 def recipe_detail(request, recipe_id):
-    # Fetch the recipe by ID
     recipe = get_object_or_404(Recipe, id=recipe_id)
-    return render(request, 'blog/recipe_detail.html', {
-        'recipe': recipe,
-    })
+    
+    if request.method == "POST":
+        star_rating = int(request.POST.get("rating", 0))
+        if 1 <= star_rating <= 5:
+            recipe.total_rating += star_rating
+            recipe.rating_count += 1
+            recipe.save()
 
+    context = {
+        "recipe": recipe,
+        "average_rating": recipe.calculate_average_rating(),
+    }
+    return render(request, "blog/recipe_detail.html", context)
