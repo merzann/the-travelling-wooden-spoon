@@ -1,47 +1,51 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
+<main class="container py-4 recipe-detail"> <!-- Bootstrap container with vertical padding -->
+    <h1 class="text-center mb-4">{{ recipe.title }}</h1>
+    <div class="row g-4 justify-content-center"> <!-- Bootstrap grid with spacing and centered content -->
 
-<main>
-    <article class="recipe-detail">
-        <h1>{{ recipe.title }}</h1>
-        <div>
-            <p>Rating: {{ average_rating }} ({{ recipe.rating_count }} votes)</p>
+        <!-- Recipe Card -->
+        <div class="col-12 col-xl-6">
+            <div class="card shadow-sm h-100">
+                <img src="{{ recipe.image.url }}" class="card-img-top" alt="Recipe Image">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ recipe.title }}</h5>
+                    <p class="card-text">{{ recipe.description }}</p>
+
+                    <!-- Rating Section -->
+                    <div class="rating text-center mb-3">
+                        {% with avg=average_rating|floatformat:"0" %}
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= avg|add:"0" %}
+                                    <span class="text-warning fs-4">&#9733;</span> <!-- Solid star (★) -->
+                                {% else %}
+                                    <span class="text-secondary fs-4">&#9734;</span> <!-- Empty star (☆) -->
+                                {% endif %}
+                            {% endfor %}
+                        {% endwith %}
+                        <p class="mt-2 mb-0">Rating: {{ average_rating }} ({{ recipe.rating_count }} votes)</p>
+                    </div>
+
+                    <!-- Submit Rating Form -->
+                    <form method="post" class="text-center mt-auto">
+                        {% csrf_token %}
+                        <label for="rating" class="form-label mb-2">Rate this recipe:</label>
+                        <div class="d-flex justify-content-center">
+                            <select name="rating" id="rating" class="form-select me-2" style="width: auto;" required>
+                                <option value="1">1 Star</option>
+                                <option value="2">2 Stars</option>
+                                <option value="3">3 Stars</option>
+                                <option value="4">4 Stars</option>
+                                <option value="5">5 Stars</option>
+                            </select>
+                            <button type="submit" class="btn btn-custom">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <form method="post">
-            {% csrf_token %}
-            <label for="rating">Rate this recipe:</label>
-            <select name="rating" id="rating" required>
-                <option value="1">1 Star</option>
-                <option value="2">2 Stars</option>
-                <option value="3">3 Stars</option>
-                <option value="4">4 Stars</option>
-                <option value="5">5 Stars</option>
-            </select>
-            <button type="submit">Submit Rating</button>
-        </form>
-        <section class="recipe-info">
-            <img src="{{ recipe.image.url }}" alt="Recipe Image">
-            <p>{{ recipe.description }}</p>
-            <!-- Ingredients and Preparation -->
-            <div class="preparation">
-                <h2>Ingredients</h2>
-                <ul>
-                    <li>Ingredient 1</li>
-                    <li>Ingredient 2</li>
-                    <li>Ingredient 3</li>
-                </ul>
-            </div>
-            <div class="preparation">
-                <h2>Preparation</h2>
-                <ul>
-                    <li>Step 1</li>
-                    <li>Step 2</li>
-                    <li>Step 3</li>
-                </ul>
-            </div>
-        </section>
-    </article>
+    </div>
 </main>
-
 {% endblock %}

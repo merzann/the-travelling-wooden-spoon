@@ -1,3 +1,4 @@
+/* General styles */
 html,
 body {
     font-family: "Inter", sans-serif;
@@ -11,7 +12,6 @@ h2 {
     font-family: "Indie Flower", cursive;
 }
 
-/* Main Section */
 header {
     height: 10vh;
     background-color: #333;
@@ -19,7 +19,61 @@ header {
     padding: 20px 10px;
 }
 
-/* Navbar*/
+section {
+    padding: 2em 1em;
+    text-align: center;
+}
+
+.section-title {
+    color: #ff6f61;
+    margin-bottom: 30px;
+}
+
+
+/* Buttons */
+.btn-hero {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #e74716;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+.btn-hero:hover {
+    background-color: #e74716;
+    color: black;
+}
+
+.btn-custom {
+    padding: 0.5em 1em;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(51, 51, 51, 0.2), 0 6px 20px rgba(51, 51, 51, 0.1);
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #e74716;
+    color: #fff;
+}
+
+ /* Card Spacing and Responsiveness */
+ .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 50vh;
+}
+
+/* Navbar */
 nav {
     display: flex;
     justify-content: space-between;
@@ -74,39 +128,14 @@ button.navbar-toggler {
     color: #fff;
 }
 
-.btn-hero {
-    display: inline-block;
-    padding: 0.5em 1em;
-    background-color: #e74716;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 1em;
+/* Recipe_detail page */
+.recipe-detail {
+    margin-top: 3.5rem !important;
+    margin-bottom: 2.5rem !important;
 }
 
-.btn-hero:hover {
-    background-color: #e74716;
-    color: black;
-}
-
-section {
-    padding: 2em 1em;
-    text-align: center;
-}
-
-.btn-custom {
-    background-color: #e74716;
-    color: #fff;
-}
-
-.btn-custom:hover {
-    background-color: #e74716;
-    color: #fff;
-}
-
-.section-title {
-    color: #ff6f61;
-    margin-bottom: 30px;
+.rating span {
+    margin-right: 2px;
 }
 
 /* footer */
