@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+    <article class="recipe-detail">
+        <h1>{{ recipe.title }}</h1>
+        <section class="recipe-info">
+            <img src="{{ recipe.image.url }}" alt="Recipe Image">
+            <p>{{ recipe.description }}</p>
+            <!-- Ingredients and Preparation -->
+            <div class="preparation">
+                <h2>Ingredients</h2>
+                <ul>
+                    <li>Ingredient 1</li>
+                    <li>Ingredient 2</li>
+                    <li>Ingredient 3</li>
+                </ul>
+            </div>
+            <div class="preparation">
+                <h2>Preparation</h2>
+                <ul>
+                    <li>Step 1</li>
+                    <li>Step 2</li>
+                    <li>Step 3</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Rating Section -->
+        <section class="comments">
+            <div class="ratings">
+                <button id="thumbs-up-btn"><i class="fa-solid fa-thumbs-up"></i></button>
+                <span id="thumbs-up-count">{{ thumbs_up }} Likes</span>
+                <button id="thumbs-down-btn"><i class="fa-solid fa-thumbs-down"></i></button>
+                <span id="thumbs-down-count">{{ thumbs_down }} Dislikes</span>
+                <div class="stars">
+                    {% for i in range(1, 6) %}
+                        <span class="star{% if i <= average_rating|round %} filled{% endif %}">&#9733;</span>
+                    {% endfor %}
+                </div>
+                <p id="rating-result">
+                    Rating: {{ average_rating|floatformat:2 }} ({{ total_votes }} votes)
+                </p>
+            </div>
+            <!-- Comments Section -->
+            <h2>Comments</h2>
+            <!-- Comments Logic (Existing content) -->
+        </section>
+    </article>
+</main>
+
+{% endblock %}
