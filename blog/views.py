@@ -29,3 +29,18 @@ def category_view(request, category_name):
     recipes = Recipe.objects.filter(category=category)
     return render(request, 'category.html', {'category': category, 'recipes': recipes})
 
+
+# Recipe_detail model to display/view recipe details
+def recipe_detail(request, recipe_id):
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    average_rating = recipe.calculate_average_rating()
+    total_votes = recipe.total_votes()
+    
+    context = {
+        'recipe': recipe,
+        'thumbs_up': recipe.thumbs_up,
+        'thumbs_down': recipe.thumbs_down,
+        'average_rating': average_rating,
+        'total_votes': total_votes,
+    }
+    return render(request, 'recipe_detail.html', context)
