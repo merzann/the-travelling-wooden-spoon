@@ -49,31 +49,29 @@ def category_view(request, category_name):
 # display recipe details and rating on recipe_detail.html
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, id=recipe_id)
-    comments = recipe.comments.all()
+    comments = recipe.comments.filter(approved=True)
     form = CommentForm()
     
-
     if request.method == "POST":
-        # Handle star rating submission
         if "rating" in request.POST:
+            # Handle rating submission
             star_rating = int(request.POST.get("rating", 0))
             if 1 <= star_rating <= 5:
                 recipe.total_rating += star_rating
                 recipe.rating_count += 1
                 recipe.save()
-                return redirect("recipe_detail", recipe_id=recipe.id)
-
-        # Handle comment submission
-        elif "comment_body" in request.POST:
+        elif "body" in request.POST:
+            # Handle comment submission
             form = CommentForm(request.POST)
             if form.is_valid():
                 comment = form.save(commit=False)
                 comment.recipe = recipe
-                comment.user = request.user
+                comment.user = request.user if request.user.is_authenticated else "Anonymous"
                 comment.save()
-                return redirect("recipe_detail", recipe_id=recipe.id)
-    else:
-        form = CommentForm()
+                messages.success(request, "Your comment has been submitted and is pending approval.")
+            else:
+                messages.error(request, "There was an error submitting your comment.")
+
 
     context = {
         "recipe": recipe,
