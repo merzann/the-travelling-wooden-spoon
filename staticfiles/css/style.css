@@ -1,3 +1,4 @@
+/* General styles */
 html,
 body {
     font-family: "Inter", sans-serif;
@@ -11,11 +12,82 @@ h2 {
     font-family: "Indie Flower", cursive;
 }
 
-nav {
+header {
+    height: 10vh;
     background-color: #333;
-    color: white;
+    color: #ddd;
+    padding: 20px 10px;
+}
+
+section {
+    padding: 2em 1em;
+    text-align: center;
+}
+
+.section-title {
+    color: #ff6f61;
+    margin-bottom: 30px;
+}
+
+
+/* Buttons */
+.btn-hero {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #e74716;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+.btn-hero:hover {
+    background-color: #e74716;
+    color: black;
+}
+
+.btn-custom {
+    padding: 0.5em 1em;
+    background-color: #ff5722;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(51, 51, 51, 0.2), 0 6px 20px rgba(51, 51, 51, 0.1);
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #e74716;
+    color: #fff;
+}
+
+ /* Card Spacing and Responsiveness */
+ .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 50vh;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: auto;
-    padding: 0.5em;
+    padding: 0 0.5em;
+}
+
+li.nav-item a {
+    color: rgb(203, 177, 152) !important;
+}
+
+li.nav-item a:hover{
+    color: rgb(247, 243, 239) !important;
 }
 
 .navbar-light .navbar-nav .nav-link.active {
@@ -30,31 +102,84 @@ button.navbar-toggler {
     filter: invert(1);
 }
 
-/* Hero Section Styling */
+ul.dropdown-menu.show {
+    background-color:#333 !important;
+}
+
+.login-status {
+    align-self: center;
+    text-align: right;
+}
+
+
+/* Hero Section */
 .hero {
+    background-image: url('/static/images/background.jpeg');
+    background-size: cover;
+    background-position: center center;
+    min-height: 90vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #370a0a;
     text-align: center;
-    background-color: #f8f9fa;
-    padding: 50px 20px;
 }
 
-.hero img {
-    max-width: 100%;
-    height: auto;
+.hero-content {
+    max-width: 800px;
+    margin: 6.25rem auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 5px;
 }
 
-.btn-custom {
-    background-color: #ff6f61;
+.hero-content h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin: 1em 0;
     color: #fff;
 }
 
-.btn-custom:hover {
-    background-color: #e65a4f;
+/* Modal */
+.modal-content {
+    background-color: #333;
     color: #fff;
 }
 
-.section-title {
-    color: #ff6f61;
-    margin-bottom: 30px;
+.modal-content .list-group {
+    background-color:rgb(203, 177, 152);
+}
+
+.modal-content .list-group-item a {
+    color: #333;
+    text-decoration: none !important;
+}
+
+.modal-content .list-group-item :hover {
+    background-color: #550f0f; 
+    color: #fff; 
+}
+
+.modal-content .btn-close {
+    color: #fff;
+    opacity: 0.8;
+}
+
+.modal-content .btn-close:hover {
+    opacity: 1;
+}
+
+
+/* Recipe_detail page */
+.recipe-detail {
+    margin-top: 3.5rem !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.rating span {
+    margin-right: 2px;
 }
 
 /* footer */
@@ -63,4 +188,59 @@ footer {
     color: #ddd;
     text-align: center;
     padding: 1em 0;
+}
+
+/* Media Query */
+  
+@media (min-width: 768px) {
+
+    /* hero section */
+    .hero {
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 95vh;
+    }
+
+    .hero-content {
+        max-width: 70%;
+        margin-top: 6.25rem;
+    }
+
+    .hero-content h1 {
+        font-size: 4em;
+        margin: 0;
+    }
+    
+    .hero-content p {
+        font-size: 1.5em;
+        margin: 1em 0;
+        color: #fff;
+    }
+        
+    /* recipe-detailed page */
+    .recipe-detail h1 {
+        text-align: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    
+    /* Hero Section */
+    .container{
+        margin-bottom: 18.75rem;
+    }
+
+    .hero-content {
+        margin-top: 8.25rem;
+    }
+
+    .hero-content h1 {
+        font-size: 5em;
+        margin: 0;
+    }
+    
+    .hero-content p {
+        font-size: 2em;
+        margin: 1em 0;
+        color: #fff;
+    }
 }
