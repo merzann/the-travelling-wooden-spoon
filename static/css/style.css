@@ -61,18 +61,6 @@ section {
     color: #fff;
 }
 
- /* Card Spacing and Responsiveness */
- .card {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.card-img-top {
-    object-fit: cover;
-    height: 50vh;
-}
-
 /* Navbar */
 nav {
     display: flex;
@@ -172,6 +160,11 @@ ul.dropdown-menu.show {
 }
 
 
+/* About page */
+.about_header {
+    color:#333 !important;
+}
+
 /* Recipe_detail page */
 .recipe-detail {
     margin-top: 3.5rem !important;
@@ -180,6 +173,18 @@ ul.dropdown-menu.show {
 
 .rating span {
     margin-right: 2px;
+}
+
+ /* Card Spacing and Responsiveness */
+ .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 50vh;
 }
 
 /* footer */
