@@ -49,7 +49,7 @@
                     <div class="card h-100">
                         <img src="{{ feature.recipe.image.url }}" class="card-img-top" alt="{{ feature.recipe.title }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ feature.recipe.title|safe }}</h5>
+                            <h5 class="card-title">{{ feature.recipe.title }}</h5>
                             <p class="card-text">{{ feature.recipe.description|safe }}</p>
                             <a href="{% url 'recipe_detail' feature.recipe.id %}" class="btn btn-custom">Read More</a>
                         </div>
@@ -71,7 +71,7 @@
                 <div class="col-12 col-md-6 col-xl-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">{{ post.title|safe }}</h5>
+                            <h5 class="card-title">{{ post.title }}</h5>
                             <p class="card-text">{{ post.content|safe }}</p>
                             <a href="{% url 'blog_detail' post.id %}" class="btn btn-custom">Read More</a>
                         </div>

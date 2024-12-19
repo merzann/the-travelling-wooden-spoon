@@ -5,7 +5,7 @@ from django_summernote.widgets import SummernoteWidget
 from django_summernote.admin import SummernoteModelAdmin
 
 
-# Summernote dynamic regristration
+# Dynamic Summernote for generic models
 class DynamicSummernoteAdmin(SummernoteModelAdmin):
     """Custom admin to apply Summernote to all TextFields dynamically."""
     
@@ -19,54 +19,48 @@ class DynamicSummernoteAdmin(SummernoteModelAdmin):
         return form
 
 
-# Register the models with the custom admin class
-admin.site.register(Category, DynamicSummernoteAdmin)
-admin.site.register(Recipe, DynamicSummernoteAdmin)
-admin.site.register(HomepageFeature, DynamicSummernoteAdmin)
-admin.site.register(BlogPost, DynamicSummernoteAdmin)
-admin.site.register(Comment, DynamicSummernoteAdmin)
-
-
-# RecipeAdmin with filtering and search
-class RecipeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'status', 'popularity_score', 'date')
-    list_filter = ('status', 'category') 
-    search_fields = ('title', 'description')
-    prepopulated_fields = {'excerpt': ('description',)}
-
-
-# CategoryAdmin for managing recipe categories
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    search_fields = ('name',)
-
-
-# HomepageFeatureAdmin for managing featured recipes
-class HomepageFeatureAdmin(admin.ModelAdmin):
-    list_display = ('recipe', 'excerpt')
-    search_fields = ('recipe__title',)
-
-
-# BlogPostAdmin for managing blog posts
-class BlogPostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date')
-    search_fields = ('title', 'snippet')
-    ordering = ('-date',)
-
-
-# CommentAdmin for managing comments
-class CommentAdmin(admin.ModelAdmin):
+# Explicit Admin for Comment Model
+@admin.register(Comment)
+class CommentAdmin(SummernoteModelAdmin):
+    """Custom admin with filters and Summernote for the Comment model."""
     list_display = ('recipe', 'user', 'approved', 'timestamp')
-    list_filter = ('approved', 'timestamp')
-    search_fields = ('user', 'text')
+    list_filter = ('approved', 'timestamp')  # Restore filters
+    search_fields = ('user__username', 'body')
     actions = ['approve_comments', 'disapprove_comments']
 
-    # Custom action to approve comments
+    # Custom actions
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
     approve_comments.short_description = "Approve selected comments"
 
-    # Custom action to disapprove comments
     def disapprove_comments(self, request, queryset):
         queryset.update(approved=False)
     disapprove_comments.short_description = "Disapprove selected comments"
+
+
+# Explicit Admin for Recipe Model
+@admin.register(Recipe)
+class RecipeAdmin(SummernoteModelAdmin):
+    """Custom admin for the Recipe model."""
+    list_display = ('title', 'category', 'status', 'popularity_score', 'date')
+    list_filter = ('status', 'category')
+    search_fields = ('title', 'description')
+    prepopulated_fields = {'excerpt': ('description',)}
+    summernote_fields = ('description',)
+
+
+# Explicit Admin for BlogPost Model
+@admin.register(BlogPost)
+class BlogPostAdmin(SummernoteModelAdmin):
+    """Custom admin for the BlogPost model."""
+    list_display = ('title', 'date')
+    list_filter = ('date',)
+    search_fields = ('title', 'content')
+    summernote_fields = ('content',)
+
+
+# Dynamic Registration for Other Models
+models_to_register = [Category, HomepageFeature]
+for model in models_to_register:
+    if not admin.site.is_registered(model):
+        admin.site.register(model, DynamicSummernoteAdmin)
