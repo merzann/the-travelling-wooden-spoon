@@ -5,6 +5,9 @@
 {% url 'contact' as contact_url %}
 {% url 'recipes_view' as recipes_url %}
 {% url 'recipe_detail' as recipe_detail_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 
 
 
@@ -46,15 +49,17 @@
                                 href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Recipes
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 {% for category in categories %}
-                                    <li><a class="dropdown-item" href="{% url 'category_view' category.name %}">{{ category.name }}</a></li>
+                                <li><a class="dropdown-item"
+                                        href="{% url 'category_view' category.name %}">{{ category.name }}</a></li>
                                 {% endfor %}
                             </ul>
-                        </li>                        
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page"
                                 href="#">About</a>
@@ -63,10 +68,21 @@
                             <a class="nav-link {% if request.path == contact_url %}active{% endif %}"
                                 aria-current="page" href="#">Contact</a>
                         </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                                href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                                href="{% url 'account_signup' %}">Register</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-                                href="#">Login</a>
+                                href="{% url 'account_login' %}">Login</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
