@@ -1,10 +1,8 @@
 from django.contrib import admin
-
-# Register your models here.
-from django.contrib import admin
 from .models import About
+from django_summernote.admin import SummernoteModelAdmin
+
 
 @admin.register(About)
-class AboutAdmin(admin.ModelAdmin):
-    list_display = ('id',)
-    fields = ('bio', 'profile_picture')
+class AboutPageAdmin(SummernoteModelAdmin):
+    summernote_fields = ('bio',)
