@@ -106,6 +106,12 @@ ul.dropdown-menu.show {
     background-color:#333 !important;
 }
 
+.login-status {
+    align-self: center;
+    text-align: right;
+}
+
+
 /* Hero Section */
 .hero {
     background-image: url('/static/images/background.jpeg');

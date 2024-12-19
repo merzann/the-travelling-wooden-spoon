@@ -4,10 +4,19 @@
 {% block content %}
 
 <main class="container py-4 recipe-detail">
-    <!-- Bootstrap container with vertical padding -->
+
+    <!-- Messages block -->
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <h1 class="text-center mb-4">{{ recipe.title }}</h1>
     <div class="row g-4 justify-content-center">
-        <!-- Bootstrap grid with spacing and centered content -->
 
         <!-- Recipe Card -->
         <div class="col-12">
@@ -33,6 +42,7 @@
                         <p class="mt-2 mb-0">Rating: {{ average_rating }} ({{ recipe.rating_count }} votes)</p>
                     </div>
 
+                    {% if user.is_authenticated %}
                     <!-- Submit Rating Form -->
                     <form method="post" class="text-center mt-auto">
                         {% csrf_token %}
@@ -57,7 +67,7 @@
                             <div>
                                 <p><strong>{{ comment.user }}</strong> said:</p>
                                 <p>{{ comment.body }}</p>
-                                <p><small>Posted on {{ comment.created_at }}</small></p>
+                                <p><small>Posted on {{ comment.timestamp|date:"F j, Y, g:i a" }}</small></p>
                             </div>
                             {% empty %}
                             <p>No comments yet. Be the first to comment!</p>
@@ -66,14 +76,18 @@
 
                         <div class="col-md-4 card mb-4 mt-3">
                             <h3>Leave a Comment</h3>
-                            <form method="POST">
+                            <form method="post">
                                 {% csrf_token %}
+                                <label for="id_body">Leave a Comment:</label>
                                 {{ form.as_p }}
-                                <input type="hidden" name="action" value="comment">
-                                <button type="submit" class="btn btn-custom">Submit</button>
+                                <button type="submit" name="submit_comment" class="btn btn-custom">Submit</button>
                             </form>
                         </div>
                     </div>
+                    {% else %}
+                    <p><a href="{% url 'account_login' %}">Log in</a> or <a href="{% url 'account_signup' %}">Sign
+                            up</a> to leave a comment or rating.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

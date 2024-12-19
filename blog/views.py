@@ -53,6 +53,9 @@ def recipe_detail(request, recipe_id):
     form = CommentForm()
     
     if request.method == "POST":
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden("You must be logged in to perform this action.")
+            
         if "rating" in request.POST:
             # Handle rating submission
             star_rating = int(request.POST.get("rating", 0))
@@ -69,6 +72,7 @@ def recipe_detail(request, recipe_id):
                 comment.user = request.user if request.user.is_authenticated else "Anonymous"
                 comment.save()
                 messages.success(request, "Your comment has been submitted and is pending approval.")
+                form = CommentForm()
             else:
                 messages.error(request, "There was an error submitting your comment.")
 

@@ -1,5 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -23,8 +24,8 @@ class Recipe(models.Model):
     )
 
     title = models.CharField(max_length=200)
-    description = models.TextField()
     excerpt = models.TextField(max_length=300, blank=True, null=True)
+    description = models.TextField()
     image = CloudinaryField('image', null=True, blank=True)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, related_name='recipes')
     date = models.DateTimeField(auto_now_add=True)
@@ -65,7 +66,7 @@ class BlogPost(models.Model):
 # Comment model to allows users to add, view, and manage comments on recipes
 class Comment(models.Model):
     recipe = models.ForeignKey('Recipe', on_delete=models.CASCADE, related_name='comments')
-    user = models.CharField(max_length=100)  # Replace with ForeignKey(User) if user authentication is added
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     body = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
