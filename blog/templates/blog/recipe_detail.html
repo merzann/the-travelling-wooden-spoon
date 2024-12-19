@@ -2,9 +2,11 @@
 {% load static %}
 
 {% block content %}
-<main class="container py-4 recipe-detail"> <!-- Bootstrap container with vertical padding -->
+<main class="container py-4 recipe-detail">
+    <!-- Bootstrap container with vertical padding -->
     <h1 class="text-center mb-4">{{ recipe.title }}</h1>
-    <div class="row g-4 justify-content-center"> <!-- Bootstrap grid with spacing and centered content -->
+    <div class="row g-4 justify-content-center">
+        <!-- Bootstrap grid with spacing and centered content -->
 
         <!-- Recipe Card -->
         <div class="col-12 col-xl-6">
@@ -17,15 +19,15 @@
                     <!-- Rating Section -->
                     <div class="rating text-center mb-3">
                         {% with avg=average_rating|floatformat:"0" %}
-                            {% for i in "12345" %}
-                                {% if forloop.counter <= avg|add:"0" %}
-                                    <!-- Solid star (★) -->
-                                    <span class="text-warning fs-4">&#9733;</span>
-                                {% else %}
-                                    <!-- Empty star (☆) -->
-                                    <span class="text-secondary fs-4">&#9734;</span>
-                                {% endif %}
-                            {% endfor %}
+                        {% for i in "12345" %}
+                        {% if forloop.counter <= avg|add:"0" %}
+                        <!-- Solid star (★) -->
+                        <span class="text-warning fs-4">&#9733;</span>
+                        {% else %}
+                        <!-- Empty star (☆) -->
+                        <span class="text-secondary fs-4">&#9734;</span>
+                        {% endif %}
+                        {% endfor %}
                         {% endwith %}
                         <p class="mt-2 mb-0">Rating: {{ average_rating }} ({{ recipe.rating_count }} votes)</p>
                     </div>
@@ -44,6 +46,27 @@
                             </select>
                             <button type="submit" class="btn btn-custom">Submit</button>
                         </div>
+                    </form>
+
+                    <!-- Submit Comment Form -->
+                    <h2>Comments</h2>
+                    <div>
+                        {% for comment in comments %}
+                        <div>
+                            <p><strong>{{ comment.user }}</strong> said:</p>
+                            <p>{{ comment.body }}</p>
+                            <p><small>Posted on {{ comment.created_at }}</small></p>
+                        </div>
+                        {% empty %}
+                        <p>No comments yet. Be the first to comment!</p>
+                        {% endfor %}
+                    </div>
+
+                    <h3>Leave a Comment</h3>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>

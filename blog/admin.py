@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Recipe, HomepageFeature, BlogPost
+from .models import Category, Recipe, HomepageFeature, BlogPost, Comment
 
 # RecipeAdmin with filtering and search
 @admin.register(Recipe)
@@ -36,9 +36,9 @@ class BlogPostAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('recipe', 'user', 'approved', 'timestamp')
-    list_filter = ('approved', 'timestamp')  # Filter by approval status and timestamp
+    list_filter = ('approved', 'timestamp')
     search_fields = ('user', 'text')
-    actions = ['approve_comments', 'disapprove_comments']  # Custom actions
+    actions = ['approve_comments', 'disapprove_comments']
 
     # Custom action to approve comments
     def approve_comments(self, request, queryset):

@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Recipe, HomepageFeature, BlogPost
 from django.db.models import Avg
+from django.contrib import messages
+from .models import Category, Recipe, HomepageFeature, BlogPost, Comment
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -47,18 +49,38 @@ def category_view(request, category_name):
 # display recipe details and rating on recipe_detail.html
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, id=recipe_id)
+    comments = recipe.comments.all()
+    form = CommentForm()
     
+
     if request.method == "POST":
-        star_rating = int(request.POST.get("rating", 0))
-        if 1 <= star_rating <= 5:
-            recipe.total_rating += star_rating
-            recipe.rating_count += 1
-            recipe.save()
+        # Handle star rating submission
+        if "rating" in request.POST:
+            star_rating = int(request.POST.get("rating", 0))
+            if 1 <= star_rating <= 5:
+                recipe.total_rating += star_rating
+                recipe.rating_count += 1
+                recipe.save()
+                return redirect("recipe_detail", recipe_id=recipe.id)
+
+        # Handle comment submission
+        elif "comment_body" in request.POST:
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.recipe = recipe
+                comment.user = request.user
+                comment.save()
+                return redirect("recipe_detail", recipe_id=recipe.id)
+    else:
+        form = CommentForm()
 
     context = {
         "recipe": recipe,
         "average_rating": recipe.calculate_average_rating(),
-        'comments': comments,
+        "comments": comments,
+        "form": form,
     }
 
     return render(request, "blog/recipe_detail.html", context)
+

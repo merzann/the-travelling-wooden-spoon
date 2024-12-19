@@ -66,7 +66,7 @@ class BlogPost(models.Model):
 class Comment(models.Model):
     recipe = models.ForeignKey('Recipe', on_delete=models.CASCADE, related_name='comments')
     user = models.CharField(max_length=100)  # Replace with ForeignKey(User) if user authentication is added
-    text = models.TextField()
+    body = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
