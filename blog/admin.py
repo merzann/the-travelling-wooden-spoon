@@ -1,5 +1,14 @@
 from django.contrib import admin
 from .models import Category, Recipe, HomepageFeature, BlogPost, Comment
+from django_summernote.admin import SummernoteModelAdmin
+
+class PostAdmin(SummernoteModelAdmin):
+
+    list_display = ('title', 'category', 'status', 'popularity_score', 'date')
+    search_fields = ['title', 'description']
+    list_filter = ('status', 'category')
+    prepopulated_fields = {'excerpt': ('description',)}
+    summernote_fields = ('content',)
 
 # RecipeAdmin with filtering and search
 @admin.register(Recipe)
