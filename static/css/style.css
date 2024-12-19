@@ -102,6 +102,10 @@ button.navbar-toggler {
     filter: invert(1);
 }
 
+ul.dropdown-menu.show {
+    background-color:#333 !important;
+}
+
 /* Hero Section */
 .hero {
     background-image: url('/static/images/background.jpeg');
@@ -131,6 +135,36 @@ button.navbar-toggler {
     margin: 1em 0;
     color: #fff;
 }
+
+/* Modal */
+.modal-content {
+    background-color: #333;
+    color: #fff;
+}
+
+.modal-content .list-group {
+    background-color:rgb(203, 177, 152);
+}
+
+.modal-content .list-group-item a {
+    color: #333;
+    text-decoration: none !important;
+}
+
+.modal-content .list-group-item :hover {
+    background-color: #550f0f; 
+    color: #fff; 
+}
+
+.modal-content .btn-close {
+    color: #fff;
+    opacity: 0.8;
+}
+
+.modal-content .btn-close:hover {
+    opacity: 1;
+}
+
 
 /* Recipe_detail page */
 .recipe-detail {
@@ -179,14 +213,6 @@ footer {
     /* recipe-detailed page */
     .recipe-detail h1 {
         text-align: center;
-    }
-
-    .preparation {
-        list-style-type: none;
-        background: #f4f4f4;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        width: 60%;
     }
 }
 
