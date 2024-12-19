@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mt-5 mb-4" style="color: #333;">{% trans "Sign In" %}</h1>
+
+            {% get_providers as socialaccount_providers %}
+
+            {% if socialaccount_providers %}
+            <p class="text-left" style="color: #333;">
+                {% blocktrans with site.name as site_name %}
+                Please sign in with one of your existing third-party accounts. Or, 
+                <a href="{{ signup_url }}" style="color: #550f0f;">sign up</a> for a {{ site_name }} account and sign in below:
+                {% endblocktrans %}
+            </p>
+
+            <div class="socialaccount_ballot mb-4">
+                <ul class="socialaccount_providers list-unstyled d-flex justify-content-around">
+                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </ul>
+                <div class="text-center login-or" style="color: #333;">{% trans 'or' %}</div>
+            </div>
+
+            {% include "socialaccount/snippets/login_extra.html" %}
+            {% else %}
+            <p style="color: #333;">
+                {% blocktrans %}
+                If you have not created an account yet, then please
+                <a href="{{ signup_url }}" style="color: #550f0f;">sign up</a> first.
+                {% endblocktrans %}
+            </p>
+            {% endif %}
+
+            <form class="login mt-4" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <div class="d-flex justify-content-center mt-5">
+                    <a class="btn btn-link" href="{% url 'account_reset_password' %}" style="color: #550f0f;">{% trans "Forgot Password?" %}</a>
+                    <button class="btn btn-primary" type="submit" style="background-color: #550f0f; border-color: #550f0f; padding: 10px 20px; font-size: 16px; font-weight: bold;">{% trans "Sign In" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
