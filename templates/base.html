@@ -1,7 +1,7 @@
 {% load static %}
 
 {% url 'home' as home_url %}
-{% url 'about' as about_url %}
+{% url 'about_page' as about_page_url %}
 {% url 'contact' as contact_url %}
 {% url 'recipes_view' as recipes_url %}
 {% url 'recipe_detail' as recipe_detail_url %}
@@ -50,7 +50,7 @@
                                 href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle {% if request.path == recipes_url %}active{% endif %}" aria-current="page" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Recipes
                             </a>
@@ -62,11 +62,11 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page"
+                            <a class="nav-link {% if request.path == about_page_url %}active{% endif %}" aria-current="page"
                                 href="{% url 'about_page' %}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == contact_url %}active{% endif %}"
+                            <a class="nav-link {% if request.path == weekly_tip_url %}active{% endif %}"
                                 aria-current="page" href="{% url 'weekly_tip' %}">Weekly Tip</a>
                         </li>
                         {% if user.is_authenticated %}

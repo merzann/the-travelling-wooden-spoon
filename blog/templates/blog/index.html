@@ -41,7 +41,7 @@
 
     <!-- Featured Recipes Section -->
     <section class="py-5">
-        <div class="container">
+        <div class="container-fluid">
             <h2 class="section-title text-center">Featured Recipes</h2>
             <div class="row g-4">
                 {% for feature in featured_recipes %}
@@ -64,7 +64,7 @@
 
     <!-- Latest Blog Posts Section -->
     <section class="py-5 bg-light">
-        <div class="container">
+        <div class="container-fluid">
             <h2 class="section-title text-center">Latest Blog Posts</h2>
             <div class="row g-4">
                 {% for post in latest_blog_posts %}
@@ -86,11 +86,11 @@
 
     <!-- Popular Recipes Section -->
     <section class="py-5">
-        <div class="container">
+        <div class="container-fluid">
             <h2 class="section-title text-center">Popular Recipes</h2>
             <div class="row g-4">
                 {% for recipe in popular_recipes %}
-                <div class="col-12 col-md-6 col-xl-4">
+                <div class="col-l-6 col-xl-4">
                     <div class="card h-100">
                         <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
                         <div class="card-body">
