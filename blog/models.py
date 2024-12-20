@@ -54,7 +54,9 @@ class HomepageFeature(models.Model):
 
 # Blogpost model to store blogs for latest-blog-post-section
 class BlogPost(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='blog_posts', null=True, blank=True)
     title = models.CharField(max_length=200)
+    image = CloudinaryField('image', null=True, blank=True)
     snippet = models.TextField(max_length=300)
     content = models.TextField()
     date = models.DateTimeField(auto_now_add=True)

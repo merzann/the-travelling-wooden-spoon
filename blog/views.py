@@ -13,7 +13,8 @@ def homepage(request):
     featured_recipes = HomepageFeature.objects.select_related('recipe').order_by('-recipe__total_rating')[:3]
     latest_recipes = Recipe.objects.filter(status=1).order_by('-date')[:3]
     popular_recipes = Recipe.objects.filter(status=1).order_by('-popularity_score')[:3]
-    latest_blog_posts = BlogPost.objects.all().order_by('-date')[:3]
+    latest_blog_posts = BlogPost.objects.filter(recipe__status=1).order_by('-date')[:3]
+
 
     # Pass data to the template
     context = {
@@ -24,6 +25,13 @@ def homepage(request):
         'latest_blog_posts': latest_blog_posts,
     }
     return render(request, 'blog/index.html', context)
+
+
+# fetches BlogPost and displays content in Latest-Blog-Post-Section when a new recipe is posted
+def blog_detail(request, blog_id):
+    blog_post = get_object_or_404(BlogPost, id=blog_id)
+    return render(request, {'blog_post': blog_post})
+
 
 # display all recipes on category.html and categories in dropdown navbar list
 def recipes_view(request):
