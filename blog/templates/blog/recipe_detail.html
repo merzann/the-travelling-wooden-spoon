@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<main class="container-fluid col-md-8 py-4 recipe-detail">
+<main class="container-fluid col-md- col-xl-11 py-4 recipe-detail">
 
     <!-- Messages block -->
     {% if messages %}
@@ -59,29 +59,46 @@
                         </div>
                     </form>
 
-                    <!-- Submit Comment Form -->
-                    <div class="row">
-                        <div class="col-md-8 card mb-4 mt-3">
-                            <h2>Comments</h2>
-                            {% for comment in comments %}
-                            <div>
-                                <p><strong>{{ comment.user }}</strong> said:</p>
-                                <p>{{ comment.body|safe }}</p>
-                                <p><small>Posted on {{ comment.timestamp|date:"F j, Y, g:i a" }}</small></p>
+                    <!-- Comments and Comment Form Section -->
+                    <div class="row mt-4 d-flex align-items-stretch">
+                        <!-- Comments Section -->
+                        <div class="col-sm-12 col-md-7 col-lg-8">
+                            <div class="card mb-4 h-100">
+                                <h2>Comments</h2>
+                                {% for comment in comments %}
+                                <div>
+                                    <p><strong>{{ comment.user }}</strong> said:</p>
+                                    <p>{{ comment.body|safe }}</p>
+                                    <p><small>Posted on {{ comment.timestamp|date:"F j, Y, g:i a" }}</small></p>
+
+                                    {% if user == comment.user %}
+                                    <form action="{% url 'delete_comment' comment.id %}" method="post" class="mt-2">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger btn-sm shadow-sm">Delete</button>
+                                    </form>
+                                    {% endif %}
+                                </div>
+                                {% empty %}
+                                <p>No comments yet. Be the first to comment!</p>
+                                {% endfor %}
                             </div>
-                            {% empty %}
-                            <p>No comments yet. Be the first to comment!</p>
-                            {% endfor %}
                         </div>
 
-                        <div class="col-md-4 card mb-4 mt-3">
-                            <h3>Leave a Comment</h3>
-                            <form method="post">
-                                {% csrf_token %}
-                                <label for="id_body">Leave a Comment:</label>
-                                {{ form.as_p }}
-                                <button type="submit" name="submit_comment" class="btn btn-custom">Submit</button>
-                            </form>
+                        <!-- Comment Form Section -->
+                        <div class="col-sm-12 col-md-5 col-lg-4">
+                            <div class="card mb-4 h-100">
+                                <h3>Leave a Comment</h3>
+                                <form method="post" class="d-flex flex-column h-100">
+                                    {% csrf_token %}
+                                    <div class="flex-grow-1">
+                                        <label for="id_body" class="form-label">Comment:</label>
+                                        <textarea id="id_body" name="body" class="form-control w-100" rows="8"
+                                            style="min-height: 200px;"></textarea>
+                                    </div>
+                                    <button type="submit" name="submit_comment"
+                                        class="btn btn-custom align-self-end mb-5">Submit</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     {% else %}

@@ -205,6 +205,15 @@ ul.dropdown-menu.show {
     margin-right: 2px;
 }
 
+/* Comment section */
+textarea#id_body {
+    resize: vertical;
+    min-height: 250px;
+    max-height: 400px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+
 
 /* footer */
 footer {
@@ -214,7 +223,7 @@ footer {
     padding: 1em 0;
 }
 
-/* Media Query */
+/* Media Queries */
   
 @media (min-width: 768px) {
     .hero-content {
@@ -236,6 +245,10 @@ footer {
     /* recipe-detailed page */
     .recipe-detail h1 {
         text-align: center;
+    }
+
+    textarea#id_body {
+        min-height: 200px;
     }
 }
 

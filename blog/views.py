@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Avg
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Category, Recipe, HomepageFeature, BlogPost, Comment
 from .forms import CommentForm
 
@@ -94,3 +95,15 @@ def recipe_detail(request, recipe_id):
 
     return render(request, "blog/recipe_detail.html", context)
 
+
+# allow user to delete their own comments
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+     # Ensure only the owner of a comment can delete
+    if comment.user == request.user:
+        comment.delete()
+        messages.success(request, "Your comment has been deleted.")
+    else:
+        messages.error(request, "You are not authorized to delete this comment.")
+    return redirect('recipe_detail', recipe_id=comment.recipe.id)
