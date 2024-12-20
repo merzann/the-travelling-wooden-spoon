@@ -35,8 +35,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_summernote',
-    'blog',
     'about',
+    'blog',
+    'weekly_tip',
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
