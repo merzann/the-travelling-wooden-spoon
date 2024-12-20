@@ -8,8 +8,12 @@ body {
 }
 
 h1,
-h2 {
+h2, h3 {
     font-family: "Indie Flower", cursive;
+}
+
+.heading {
+    color:#333 !important;
 }
 
 header {
@@ -61,25 +65,27 @@ section {
     color: #fff;
 }
 
- /* Card Spacing and Responsiveness */
- .card {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.card-img-top {
-    object-fit: cover;
-    height: 50vh;
-}
-
 /* Navbar */
-nav {
+.navbar {
+    padding-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     padding: 0 0.5em;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar-collapse {
+    background-color: rgba(51, 51, 51, 0.7);
+    width: 100%;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 1rem;
 }
 
 li.nav-item a {
@@ -94,16 +100,16 @@ li.nav-item a:hover{
     color: #f8f9fa !important;
 }
 
-button.navbar-toggler {
-    border-color: #f8f9fa !important;
-}
-
 .navbar-toggler-icon {
     filter: invert(1);
 }
 
+button.navbar-toggler {
+    border-color: #f8f9fa !important;
+}
+
 ul.dropdown-menu.show {
-    background-color:#333 !important;
+    background-color:rgba(51, 51, 51, 0.7) !important;
 }
 
 .login-status {
@@ -117,7 +123,7 @@ ul.dropdown-menu.show {
     background-image: url('/static/images/background.jpeg');
     background-size: cover;
     background-position: center center;
-    min-height: 90vh;
+    min-height: 95vh;
     background-color: rgba(0, 0, 0, 0.3);
     color: #370a0a;
     text-align: center;
@@ -171,6 +177,17 @@ ul.dropdown-menu.show {
     opacity: 1;
 }
 
+/* Card Spacing and Responsiveness */
+ .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 50vh;
+}
 
 /* Recipe_detail page */
 .recipe-detail {
@@ -181,6 +198,7 @@ ul.dropdown-menu.show {
 .rating span {
     margin-right: 2px;
 }
+
 
 /* footer */
 footer {
@@ -193,13 +211,6 @@ footer {
 /* Media Query */
   
 @media (min-width: 768px) {
-
-    /* hero section */
-    .hero {
-        background-color: rgba(0, 0, 0, 0.3);
-        height: 95vh;
-    }
-
     .hero-content {
         max-width: 70%;
         margin-top: 6.25rem;
@@ -223,8 +234,6 @@ footer {
 }
 
 @media (min-width: 1200px) {
-    
-    /* Hero Section */
     .container{
         margin-bottom: 18.75rem;
     }
