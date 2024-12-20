@@ -6,5 +6,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    path('weekly-tip/', include('weekly_tip.urls')),
     path("", include("blog.urls"), name="blog-urls"),
 ]

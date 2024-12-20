@@ -165,17 +165,7 @@ ul.dropdown-menu.show {
     color:#333 !important;
 }
 
-/* Recipe_detail page */
-.recipe-detail {
-    margin-top: 3.5rem !important;
-    margin-bottom: 2.5rem !important;
-}
-
-.rating span {
-    margin-right: 2px;
-}
-
- /* Card Spacing and Responsiveness */
+/* Card Spacing and Responsiveness */
  .card {
     border: none;
     border-radius: 10px;
@@ -186,6 +176,17 @@ ul.dropdown-menu.show {
     object-fit: cover;
     height: 50vh;
 }
+
+/* Recipe_detail page */
+.recipe-detail {
+    margin-top: 3.5rem !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.rating span {
+    margin-right: 2px;
+}
+
 
 /* footer */
 footer {

@@ -5,6 +5,7 @@
 {% url 'contact' as contact_url %}
 {% url 'recipes_view' as recipes_url %}
 {% url 'recipe_detail' as recipe_detail_url %}
+{% url 'weekly_tip' as weekly_tip_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -66,7 +67,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == contact_url %}active{% endif %}"
-                                aria-current="page" href="#">Contact</a>
+                                aria-current="page" href="{% url 'weekly_tip' %}">Weekly Tip</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
