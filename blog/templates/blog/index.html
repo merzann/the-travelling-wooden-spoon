@@ -45,7 +45,6 @@
     </section>
 
     <!-- Featured Recipes Section -->
-    <!-- Featured Recipes Section -->
     <section class="py-5">
         <div class="container-fluid">
             <h2 class="section-title text-center">Featured Recipes</h2>
@@ -55,7 +54,7 @@
                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
                         <div class="row g-4">
                             {% for feature in featured_recipes %}
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                            <div class="col-12 col-md-6 col-xl-4">
                                 <div class="card h-100">
                                     <img src="{{ feature.recipe.image.url }}" class="card-img-top"
                                         alt="{{ feature.recipe.title }}">
@@ -98,7 +97,7 @@
                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
                         <div class="row g-4">
                             {% for post in latest_blog_posts %}
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                            <div class="col-12 col-md-6 col-xl-4">
                                 <div class="card h-100">
                                     <img src="{{ post.recipe.image.url }}" class="card-img-top" alt="{{ post.title }}">
                                     <div class="card-body">
@@ -139,7 +138,7 @@
                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
                         <div class="row g-4">
                             {% for recipe in popular_recipes %}
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                            <div class="col-12 col-md-6 col-xl-4">
                                 <div class="card h-100">
                                     <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
                                     <div class="card-body">

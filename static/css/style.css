@@ -267,9 +267,17 @@ textarea#id_body {
 /* footer */
 footer {
     background-color: #333;
-    color: #ddd;
+    color: #fff;
     text-align: center;
-    padding: 1em 0;
+    padding: 5rem;
+    min-height: 100px; 
+    box-sizing: border-box;
+}
+
+footer i {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
 }
 
 /* Media Queries */

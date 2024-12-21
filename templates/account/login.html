@@ -12,33 +12,6 @@
         <div class="col-md-6">
             <h1 class="text-center mt-5 mb-4" style="color: #333;">{% trans "Sign In" %}</h1>
 
-            {% get_providers as socialaccount_providers %}
-
-            {% if socialaccount_providers %}
-            <p class="text-left" style="color: #333;">
-                {% blocktrans with site.name as site_name %}
-                Please sign in with one of your existing third-party accounts. Or, 
-                <a href="{{ signup_url }}" style="color: #550f0f;">sign up</a> for a {{ site_name }} account and sign in below:
-                {% endblocktrans %}
-            </p>
-
-            <div class="socialaccount_ballot mb-4">
-                <ul class="socialaccount_providers list-unstyled d-flex justify-content-around">
-                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                </ul>
-                <div class="text-center login-or" style="color: #333;">{% trans 'or' %}</div>
-            </div>
-
-            {% include "socialaccount/snippets/login_extra.html" %}
-            {% else %}
-            <p style="color: #333;">
-                {% blocktrans %}
-                If you have not created an account yet, then please
-                <a href="{{ signup_url }}" style="color: #550f0f;">sign up</a> first.
-                {% endblocktrans %}
-            </p>
-            {% endif %}
-
             <form class="login mt-4" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
