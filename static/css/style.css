@@ -234,6 +234,11 @@ a.scroll-down i {
     overflow: hidden;
 }
 
+.carousel-control-prev, .carousel-control-next {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: #550f0f;
@@ -310,14 +315,6 @@ footer i {
 }
 
 @media (min-width: 1200px) {
-    .container{
-        margin-bottom: 18.75rem;
-    }
-
-    .hero-content {
-        margin-top: 8.25rem;
-    }
-
     .hero-content h1 {
         font-size: 5em;
         margin: 0;
