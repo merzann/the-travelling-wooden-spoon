@@ -11,8 +11,10 @@
             <a href="#" class="btn-hero" data-bs-toggle="modal" data-bs-target="#categoryModal">
                 Explore Recipes
             </a>
+
             <!-- Bootstrap Modal -->
-            <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+            <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -35,11 +37,18 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Button to scroll to next page -->
+            <article aria-label="scroll to next page section">
+            <a href="#featured-recipes" class="scroll-down">
+                <i class="fa-sharp fa-solid fa-angles-down"></i>
+            </a>
+            </article>
         </div>
     </section>
 
     <!-- Featured Recipes Section -->
-    <section class="py-5">
+    <section id="featured-recipes" class="py-5">
         <div class="container-fluid">
             <h2 class="section-title text-center">Featured Recipes</h2>
             <div class="row g-4">
@@ -97,12 +106,36 @@
                             <h5 class="card-title">{{ recipe.title }}</h5>
                             <p class="card-text">{{ recipe.excerpt|safe }}</p>
                             <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-custom">Read More</a>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 {% empty %}
                 <p>No popular recipes available at the moment.</p>
                 {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-6">
+                <!-- Newsletter sign-up -->
+                <h3 class="text-center mb-4">Newsletter</h3>
+                <p class="text-center">Elevate your cooking and get my weekly tips sent to your inbox!</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email"
+                            required>
+                    </div>
+                    <div class="d-flex justify-content-center mt-5">
+                        <button type="submit" class="btn btn-custom w-50">Subscribe</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
