@@ -49,16 +49,6 @@ class RecipeAdmin(SummernoteModelAdmin):
     summernote_fields = ('description',)
 
 
-# Explicit Admin for BlogPost Model
-@admin.register(BlogPost)
-class BlogPostAdmin(SummernoteModelAdmin):
-    """Custom admin for the BlogPost model."""
-    list_display = ('title', 'date')
-    list_filter = ('date',)
-    search_fields = ('title', 'content')
-    summernote_fields = ('content',)
-
-
 # Dynamic Registration for Other Models
 models_to_register = [Category, HomepageFeature]
 for model in models_to_register:
