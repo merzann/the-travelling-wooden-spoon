@@ -50,7 +50,7 @@
                         <img src="{{ feature.recipe.image.url }}" class="card-img-top" alt="{{ feature.recipe.title }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ feature.recipe.title }}</h5>
-                            <p class="card-text">{{ feature.recipe.description|safe }}</p>
+                            <p class="card-text">{{ feature.recipe.excerpt|safe }}</p>
                             <a href="{% url 'recipe_detail' feature.recipe.id %}" class="btn btn-custom">Read More</a>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <img src="{{ post.recipe.image.url }}" class="card-img-top" alt="{{ post.title }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ post.title }}</h5>
-                            <p class="card-text">{{ post.content|safe }}</p>
+                            <p class="card-text">{{ post.snippet|safe }}</p>
                             <a href="{% url 'blog_detail' post.id %}" class="btn btn-custom">Read More</a>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                         <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ recipe.title }}</h5>
-                            <p class="card-text">{{ recipe.description|safe }}</p>
+                            <p class="card-text">{{ recipe.excerpt|safe }}</p>
                             <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-custom">Read More</a>
                         </div>                        
                     </div>

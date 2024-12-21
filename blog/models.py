@@ -24,7 +24,7 @@ class Recipe(models.Model):
     )
 
     title = models.CharField(max_length=200)
-    excerpt = models.TextField(max_length=300, blank=True, null=True)
+    excerpt = models.TextField(max_length=450, blank=True, null=True)
     description = models.TextField()
     image = CloudinaryField('image', null=True, blank=True)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, related_name='recipes')

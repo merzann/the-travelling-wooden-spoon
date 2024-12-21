@@ -31,7 +31,13 @@ def homepage(request):
 # fetches BlogPost and displays content in Latest-Blog-Post-Section when a new recipe is posted
 def blog_detail(request, blog_id):
     blog_post = get_object_or_404(BlogPost, id=blog_id)
-    return render(request, {'blog_post': blog_post})
+    recipe_description = blog_post.recipe.description if blog_post.recipe else "Description not available."
+    return render(request, 'blog/recipe_detail.html', {
+        'recipe': blog_post.recipe,
+        'description': recipe_description,
+        'title': blog_post.title,
+        'blog_post': blog_post,
+    })
 
 
 # display all recipes on category.html and categories in dropdown navbar list
