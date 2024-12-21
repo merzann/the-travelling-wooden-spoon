@@ -56,8 +56,9 @@
                                 href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {% if request.path == recipes_url %}active{% endif %}" aria-current="page" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle {% if request.path == recipes_url %}active{% endif %}"
+                                aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Recipes
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -68,8 +69,8 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == about_page_url %}active{% endif %}" aria-current="page"
-                                href="{% url 'about_page' %}">About</a>
+                            <a class="nav-link {% if request.path == about_page_url %}active{% endif %}"
+                                aria-current="page" href="{% url 'about_page' %}">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == weekly_tip_url %}active{% endif %}"
@@ -103,6 +104,18 @@
         {% endblock content %}
 
     </main>
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+        </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
 
     <footer class="footer mt-auto py-3">
         <p><i class="fa-regular fa-copyright"></i> 2024 The Travelling Wooden Spoon</p>
