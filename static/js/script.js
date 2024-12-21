@@ -1,4 +1,3 @@
-// function to operate caroussel on category.html
 document.addEventListener('DOMContentLoaded', () => {
     const updateCarouselItems = () => {
         const isLargeScreen = window.matchMedia('(min-width: 992px)').matches;
@@ -7,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => {
             const colDivs = item.querySelectorAll('.custom-recipe-col');
             colDivs.forEach(div => {
-                div.style.flexBasis = isLargeScreen ? '50%' : '100%';
+                div.style.flexBasis = isLargeScreen ? '50%' : '100%'; // Adjust to 50% for large screens
             });
         });
     };

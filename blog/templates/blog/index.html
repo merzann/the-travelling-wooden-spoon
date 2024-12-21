@@ -12,6 +12,10 @@
                 Explore Recipes
             </a>
 
+            <!-- Pagination -->
+            <a href="#feartured-recipes" class="scroll-down" aria-label="scroll to next page">
+                <i class="fa-sharp fa-solid fa-angles-down"></i>
+            </a>
             <!-- Bootstrap Modal -->
             <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel"
                 aria-hidden="true">
@@ -37,35 +41,49 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Button to scroll to next page -->
-            <article aria-label="scroll to next page section">
-            <a href="#featured-recipes" class="scroll-down">
-                <i class="fa-sharp fa-solid fa-angles-down"></i>
-            </a>
-            </article>
         </div>
     </section>
 
     <!-- Featured Recipes Section -->
-    <section id="featured-recipes" class="py-5">
+    <!-- Featured Recipes Section -->
+    <section class="py-5">
         <div class="container-fluid">
             <h2 class="section-title text-center">Featured Recipes</h2>
-            <div class="row g-4">
-                {% for feature in featured_recipes %}
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="card h-100">
-                        <img src="{{ feature.recipe.image.url }}" class="card-img-top" alt="{{ feature.recipe.title }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ feature.recipe.title }}</h5>
-                            <p class="card-text">{{ feature.recipe.excerpt|safe }}</p>
-                            <a href="{% url 'recipe_detail' feature.recipe.id %}" class="btn btn-custom">Read More</a>
+            <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for slide in featured_recipes|slice:":3" %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="row g-4">
+                            {% for feature in featured_recipes %}
+                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                <div class="card h-100">
+                                    <img src="{{ feature.recipe.image.url }}" class="card-img-top"
+                                        alt="{{ feature.recipe.title }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ feature.recipe.title }}</h5>
+                                        <p class="card-text">{{ feature.recipe.excerpt|safe }}</p>
+                                        <a href="{% url 'recipe_detail' feature.recipe.id %}"
+                                            class="btn btn-custom">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
                     </div>
+                    {% empty %}
+                    <p>No featured recipes available at the moment.</p>
+                    {% endfor %}
                 </div>
-                {% empty %}
-                <p>No featured recipes available at the moment.</p>
-                {% endfor %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>
@@ -74,68 +92,81 @@
     <section class="py-5 bg-light">
         <div class="container-fluid">
             <h2 class="section-title text-center">Latest Blog Posts</h2>
-            <div class="row g-4">
-                {% for post in latest_blog_posts %}
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="card h-100">
-                        <img src="{{ post.recipe.image.url }}" class="card-img-top" alt="{{ post.title }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ post.title }}</h5>
-                            <p class="card-text">{{ post.snippet|safe }}</p>
-                            <a href="{% url 'blog_detail' post.id %}" class="btn btn-custom">Read More</a>
+            <div id="latestBlogCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for slide in latest_blog_posts|slice:":3" %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="row g-4">
+                            {% for post in latest_blog_posts %}
+                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                <div class="card h-100">
+                                    <img src="{{ post.recipe.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ post.title }}</h5>
+                                        <p class="card-text">{{ post.snippet|safe }}</p>
+                                        <a href="{% url 'blog_detail' post.id %}" class="btn btn-custom">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
                     </div>
+                    {% empty %}
+                    <p>No blog posts available at the moment.</p>
+                    {% endfor %}
                 </div>
-                {% empty %}
-                <p>No blog posts available at the moment.</p>
-                {% endfor %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#latestBlogCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#latestBlogCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Popular Recipes Section -->
-    <section class="py-5">
+    <section id="popular-recipes" class="py-5">
         <div class="container-fluid">
             <h2 class="section-title text-center">Popular Recipes</h2>
-            <div class="row g-4">
-                {% for recipe in popular_recipes %}
-                <div class="col-l-6 col-xl-4">
-                    <div class="card h-100">
-                        <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ recipe.title }}</h5>
-                            <p class="card-text">{{ recipe.excerpt|safe }}</p>
-                            <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-custom">Read More</a>
+            <div id="popularCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for recipe in popular_recipes %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="row g-4">
+                            {% for recipe in popular_recipes %}
+                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                <div class="card h-100">
+                                    <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ recipe.title }}</h5>
+                                        <p class="card-text">{{ recipe.excerpt|safe }}</p>
+                                        <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-custom">Read
+                                            More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
                     </div>
+                    {% empty %}
+                    <p>No popular recipes available at the moment.</p>
+                    {% endfor %}
                 </div>
-                {% empty %}
-                <p>No popular recipes available at the moment.</p>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-6">
-                <!-- Newsletter sign-up -->
-                <h3 class="text-center mb-4">Newsletter</h3>
-                <p class="text-center">Elevate your cooking and get my weekly tips sent to your inbox!</p>
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email"
-                            required>
-                    </div>
-                    <div class="d-flex justify-content-center mt-5">
-                        <button type="submit" class="btn btn-custom w-50">Subscribe</button>
-                    </div>
-                </form>
+                <button class="carousel-control-prev" type="button" data-bs-target="#popularCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#popularCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>

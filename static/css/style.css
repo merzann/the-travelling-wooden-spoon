@@ -245,7 +245,6 @@ a.scroll-down i {
     padding: 20px 0;
 }
 
-
 /* Recipe_detail page */
 .recipe-detail {
     margin-top: 3.5rem !important;
@@ -263,7 +262,6 @@ textarea#id_body {
     max-height: 400px;
     box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
-
 
 
 /* footer */
