@@ -107,12 +107,12 @@
     <ul class="pagination justify-content-center">
         {% if page_obj.has_previous %}
         <li>
-            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous Page">&laquo; PREV</a>
         </li>
         {% endif %}
         {% if page_obj.has_next %}
         <li>
-            <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next Page">NEXT &raquo;</a>
         </li>
         {% endif %}
     </ul>
@@ -123,13 +123,13 @@
             <p style="margin: 0;">Copyright <i class="fa-regular fa-copyright ml-4" aria-hidden="true"></i> 2024 The Travelling Wooden Spoon</p>
         </div>
         <div class="social-media" style="display: flex; gap: 15px;">
-            <a href="https://www.facebook.com" target="_blank">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Visit our Facebook page">
                 <i class="fa-brands fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="https://www.instagram.com" target="_blank">
+            <a href="https://www.instagram.com" target="_blank" aria-label="Visit our Instagram page">
                 <i class="fa-brands fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.youtube.com" target="_blank">
+            <a href="https://www.youtube.com" target="_blank" aria-label="Visit our YouTube page">
                 <i class="fa-brands fa-youtube" aria-hidden="true"></i>
             </a>
         </div>
