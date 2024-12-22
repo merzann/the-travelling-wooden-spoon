@@ -28,11 +28,16 @@ class Recipe(models.Model):
     excerpt = models.TextField(max_length=450, blank=True, null=True)
     description = models.TextField()
     image = CloudinaryField('image', null=True, blank=True)
-    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, related_name='recipes')
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='recipes')
     date = models.DateTimeField(auto_now_add=True)
     popularity_score = models.IntegerField(default=0)
     status = models.IntegerField(choices=STATUS, default=0)
-    total_rating = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
+    total_rating = models.DecimalField(
+        max_digits=5, decimal_places=2, default=0.0)
     rating_count = models.IntegerField(default=0)
 
     def calculate_average_rating(self):
@@ -46,7 +51,10 @@ class Recipe(models.Model):
 
 # HomepageFeature model to manage featured recipes displayed on homepage
 class HomepageFeature(models.Model):
-    recipe = models.OneToOneField('Recipe', on_delete=models.CASCADE, related_name='featured')
+    recipe = models.OneToOneField(
+        'Recipe',
+        on_delete=models.CASCADE,
+        related_name='featured')
     excerpt = models.TextField(max_length=300)
 
     def __str__(self):
@@ -55,7 +63,12 @@ class HomepageFeature(models.Model):
 
 # Blogpost model to store blogs for latest-blog-post-section
 class BlogPost(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='blog_posts', null=True, blank=True)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='blog_posts',
+        null=True,
+        blank=True)
     title = models.CharField(max_length=200)
     image = CloudinaryField('image', null=True, blank=True)
     snippet = models.TextField(max_length=300)
@@ -68,8 +81,15 @@ class BlogPost(models.Model):
 
 # Comment model to allows users to add, view, and manage comments on recipes
 class Comment(models.Model):
-    recipe = models.ForeignKey('Recipe', on_delete=models.CASCADE, related_name='comments')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    recipe = models.ForeignKey(
+        'Recipe',
+        on_delete=models.CASCADE,
+        related_name='comments')
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True)
     body = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)

@@ -8,11 +8,12 @@ from django_summernote.admin import SummernoteModelAdmin
 # Dynamic Summernote for generic models
 class DynamicSummernoteAdmin(SummernoteModelAdmin):
     """Custom admin to apply Summernote to all TextFields dynamically."""
+
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         for field in self.model._meta.get_fields():
             if isinstance(field, models.TextField):
-                form.base_fields[field.name].widget = SummernoteWidget()     
+                form.base_fields[field.name].widget = SummernoteWidget()
         return form
 
 

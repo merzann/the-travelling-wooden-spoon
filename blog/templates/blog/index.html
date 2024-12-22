@@ -3,6 +3,16 @@
 {% block content %}
 
 <main>
+    <!-- Messages block -->
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -13,7 +23,7 @@
             </a>
 
             <!-- Pagination -->
-            <a href="#feartured-recipes" class="scroll-down" aria-label="scroll to next page">
+            <a href="#featured-recipes" class="scroll-down" aria-label="scroll to next page">
                 <i class="fa-sharp fa-solid fa-angles-down"></i>
             </a>
             <!-- Bootstrap Modal -->
@@ -45,7 +55,7 @@
     </section>
 
     <!-- Featured Recipes Section -->
-    <section id="feartured-recipespyth" class="py-3" aria-label="featured recipes section">
+    <section id="featured-recipes" class="py-3" aria-label="featured recipes section">
         <div class="container">
             <h2 class="section-title text-center">Featured Recipes</h2>
             <div class="row g-4">

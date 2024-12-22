@@ -3,6 +3,7 @@ from django.utils.timezone import now
 from .models import WeeklyTip, Subscriber
 from django.contrib import messages
 
+
 def weekly_tip(request):
     """Get the latest published tip"""
     tip = WeeklyTip.objects.filter(publish_date__lte=now()).first()

@@ -15,9 +15,20 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='About',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('bio', models.TextField()),
-                ('profile_picture', cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='image')),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('bio',
+                 models.TextField()),
+                ('profile_picture',
+                 cloudinary.models.CloudinaryField(
+                     blank=True,
+                     max_length=255,
+                     null=True,
+                     verbose_name='image')),
             ],
         ),
     ]
