@@ -1,0 +1,15 @@
+from django.test import TestCase
+from weekly_tip.models import WeeklyTip, Subscriber
+from django.utils.timezone import now, timedelta
+
+
+class TestWeeklyTipModel(TestCase):
+    def test_model_str(self):
+        tip = WeeklyTip.objects.create(title="Test Tip", content="Sample content", publish_date=now())
+        self.assertEqual(str(tip), "Test Tip")
+
+
+class TestSubscriberModel(TestCase):
+    def test_model_str(self):
+        subscriber = Subscriber.objects.create(name="John Doe", email="john@example.com")
+        self.assertEqual(str(subscriber), "john@example.com")

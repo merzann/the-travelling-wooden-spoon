@@ -1,0 +1,16 @@
+from django.test import TestCase, Client
+from weekly_tip.models import WeeklyTip, Subscriber
+from django.utils.timezone import now, timedelta
+
+
+class TestWeeklyTipView(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.tip = WeeklyTip.objects.create(
+            title="Test Tip", content="Sample content", publish_date=now()
+        )
+
+    def test_weekly_tip_view(self):
+        response = self.client.get('/weekly-tip/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.tip.title)

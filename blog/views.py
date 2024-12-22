@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect
 from django.db.models import Avg
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -6,6 +7,8 @@ from .models import Category, Recipe, HomepageFeature, BlogPost, Comment
 from .forms import CommentForm
 from weekly_tip.models import Subscriber
 
+from django.test import TestCase
+from django.urls import reverse
 
 # displays content on homepage
 

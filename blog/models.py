@@ -42,7 +42,7 @@ class Recipe(models.Model):
 
     def calculate_average_rating(self):
         if self.rating_count > 0:
-            return round(self.total_rating / self.rating_count, 2)
+            return round(float(self.total_rating) / self.rating_count, 1)
         return 0.0
 
     def __str__(self):

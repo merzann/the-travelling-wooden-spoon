@@ -1,0 +1,11 @@
+from django.test import TestCase
+from django.contrib.admin.sites import site
+from weekly_tip.models import WeeklyTip, Subscriber
+
+
+class TestAdmin(TestCase):
+    def test_weekly_tip_admin_registered(self):
+        self.assertIn(WeeklyTip, site._registry)
+
+    def test_subscriber_admin_registered(self):
+        self.assertIn(Subscriber, site._registry)

@@ -10,6 +10,7 @@
   - [Initial Checks](#initial-checks)
   - [Bugs](#bugs)
   - [Validator Testing](#validator-testing)
+  - [Automated Testing](#automated-testing)
 -  [Technology Stack](#technology-stack)
 -  [Deployment](#deployment)
 -  [Usage](#usage)
@@ -285,8 +286,19 @@ There are no bugs remaining.
 
 ### Validator Testing:
 
+
+### Automated Testing
+
 - PEP8
-    - No errors were returned from `PEP8online.com`
+    - installed and ran .flake8 to get a list of linter violations
+    - installed an ran autopep8
+  => all issues but one issue (too many characters in line) fixed => fixing that error led to function stopping to work 
+
+- Automated Testing in Django:
+  -> created a test folder for each app and a test- file for each .py-file
+
+  blog app:
+  
 
 
 ## Technology Stack
