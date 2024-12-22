@@ -2,9 +2,9 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 
-# Create your models here.
 
 # Category model to organize recipes into groups
+
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
@@ -13,11 +13,12 @@ class Category(models.Model):
 
 
 # Recipe model
-"""
-stores all information about recipes
-calculate and return rating
-"""
+
 class Recipe(models.Model):
+    """
+    stores all information about recipes
+    calculate and return rating
+    """
     STATUS = (
         (0, "Draft"),
         (1, "Published"),

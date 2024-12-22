@@ -45,15 +45,14 @@
     </section>
 
     <!-- Featured Recipes Section -->
-    <section id="featured-recipes" class="py-3" aria-label="featured recipes section">
+    <section id="feartured-recipespyth" class="py-3" aria-label="featured recipes section">
         <div class="container">
             <h2 class="section-title text-center">Featured Recipes</h2>
             <div class="row g-4">
                 {% for feature in featured_recipes %}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100">
-                        <img src="{{ feature.recipe.image.url }}" class="card-img-top"
-                            alt="{{ feature.recipe.title }}">
+                        <img src="{{ feature.recipe.image.url }}" class="card-img-top" alt="{{ feature.recipe.title }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ feature.recipe.title }}</h5>
                             <p class="card-text">{{ feature.recipe.excerpt|safe }}</p>
@@ -108,24 +107,27 @@
         </div>
     </section>
     <section>
-    <div class="row justify-content-center mb-5">
-        <div class="col-md-6">
-            <h3 class="text-center mb-4">Newsletter</h3>
-            <p class="text-center mb-5">Elevate your cooking! Sign up for my newsletter and get my weekly tips sent to your inbox!</p>
-            <form method="post">
-                {% csrf_token %}
-                <div class="mb-3 text-start" style="padding-left: 10px";>
-                    <label for="name" class="form-label" style="padding-left: 3px";>Name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
-                </div>
-                <div class="mb-3 text-start" style="padding-left: 10px";>
-                    <label for="email" class="form-label" style="padding-left: 3px";>Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
-                </div>
-                <div class="d-flex justify-content-center mt-5 mb-5">
-                    <button type="submit" class="btn btn-custom w-50">Subscribe</button>
-                </div>
-            </form>
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-6">
+                <h3 class="text-center mb-4">Newsletter</h3>
+                <p class="text-center mb-5">Elevate your cooking! Sign up for my newsletter and get my weekly tips sent
+                    to your inbox!</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3 text-start">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email"
+                            required>
+                    </div>
+                    <div class="d-flex justify-content-center mt-5 mb-5">
+                        <button type="submit" class="btn btn-custom w-50">Subscribe</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 </main>
