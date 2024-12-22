@@ -8,7 +8,8 @@
   - [Features left to implement](#features-left-to-implement)
 - [Testing](#testing)
   - [Initial Checks](#initial-checks)
-  - [Bugs](#bugs)
+  - [Page performance](#page-performance)
+  - [Bugs and Resolutions](#bugs-and-resolutions)
   - [Validator Testing](#validator-testing)
   - [Automated Testing](#automated-testing)
 -  [Technology Stack](#technology-stack)
@@ -37,23 +38,15 @@ The live link can be found here - https://the-travelling-wooden-spoon-499c1c443d
 
 
 
-## Quiz structure
+## 
 
-        The quiz consists of three sections:
+Hero Section on Mobile
+![Hero Section page on Mobile](readme_media/Homepage_mobilde_hero.png)
 
-- Vocabulary Section (15 questions)
-    - The questions test synonyms, antonyms, and general vocabulary knowledge.
-    - Example: "What is the synonym of 'happy'?" sad -  joyful - angry - tired
+Hero Section on Desktop
+![Hero Section on Desktop](readme_media/Homepage_Desktop_hero.png)
 
-- Grammar Section (15 questions)
-    - The questions test the understanding of tenses, word order, modal verbs, adjectives vs. adverbs, comparatives, and pronouns.
-    - Example: "Which sentence uses the modal verb correctly?" He ran quick. - He ran quickly. - He ran more quick. - He ran the most quick.
-
-- Text Comprehension Section (1 passage with 5 questions)
-    - The question test comprehension of a text about global warming from National Geographic Education
-    - Example: "What is global warming, and what has caused its significant increase in the past hundred years?"
-
-
+- 
 
 ## Scoring
 
@@ -102,6 +95,13 @@ The total score determines the user's CEFR level:
 
 ### Existing Features
 
+## Home page
+
+Hero Section on Mobile
+![Hero Section page on Mobile](readme_media/Homepage_mobilde_hero.png)
+
+Hero Section on Desktop
+![Hero Section on Desktop](readme_media/Homepage_Desktop_hero.png)
 
 ### Import questions from Google Sheets
 
@@ -213,79 +213,162 @@ The error handling is robust and user-friendly, accounting for common errors cau
 - randomizing of the questions within the sections to prevent cheating by restarting the test mutiple times or for the purpose of using the test for learning new language items
 
 
-## Code Quality and Version Control
 
-- PEP8 Compliance: The code has been checked against PEP8 standards using PEP8 online to ensure consistency and readability. No PEP8 errors were found during the validation process.
-
-- Linting: `Pylint` was used to check for style violations, including line length. I corrected detected violations by installing and running `Black`.
-
-- Comments: Functions and classes include docstrings to describe their purpose, inputs, and outputs.
-
-- Version control is managed using Git and GitHub, with a focus on maintaining a clean and organized history. Regular commits follow a consistent format and describe the features implemented and/or reasons for changes made to existing features.
-
-
-## Testing
-
+# Testing
 
 ### Initial Checks
 
-To catch and fix potential bugs early I tested the functionality of the code thoroughly after I implmeneted a new function using print statements in the relevant places and checked the output matched the results I expected before moving on.
+To catch and be able to reverse an action before being forced to wipe the database I made sure to strictly following the concept of model first and test the functionality with print statements to the terminal before creating the template accordingling.
 
 I confirmed that all errors caused by user action are handeled the expected way and the corresponding feedback messages are given to the user by entering invalid inputs:
 
-- strings where numbers were expected
-- out of bounds inputs
+- Submit button hit in forms before filling out all fields
 - inputs not matching the expected format
+- attempting to submit a comment twice, either by error or intentionally
+- signing up for the newsletter twice, either by error or intentionally
+- trying to submit more than one rating
+- attempting to submit a rating or commment when not signed in
 
-I tested both, my local terminal and the Code Institute Heroku terminal.
+I had content reviewed by test users so I catch and fix typos and/or grammar errors.
 
-I reviewed my Google Sheets to ensure the input is free of typos and checked that the value for `Correct Answer` matches the corresponding index in the Python code.
+I thoroughly tested all buttons, carousel and scroll-down-icon on both mobile devices, tablets and desktop.
 
-I used the raise keyword to provoke errors to check that system related errors such as data not getting pushed to the results sheet and data not getting send to the ZAP are caught and handled correctly.
-
-| Feature Tested                | Expected Outcome                                           | Actual Outcome                                             |
-|-------------------------------|------------------------------------------------------------|------------------------------------------------------------|
-| User data input (name)        | User is presented with promt to enter their name           | Prompt displayed correctly                                 |
-| Error Handling (Invalid Input)| Input > 20 characters not accepted, error message displayed| Message displayed correctly: Name should not exceed 20     |
-|                               |                                                            | characters. Please try again.                              |
-| User data input (email)       | User is presented with promt to enter their name           | Prompt displayed correctly                                 |
-| Error Handling (Invalid Input)| Incorrect email format not acceppted, error message        | Message displayed correctly: Invalid email format. The     |
-|                               | displayed.                                                 | format should be name@email.com                            |
-| Sample Question Display       | User is presented with a sample question after             | Sample question displayed correctly                        |
-| Error Handling (Invalid Input)| User receives error message when entering any other        | Error message displayed as expected: Invalid input. Please |
-|                               | character than a number                                    | enter a number between 1 and 4                             |
-| Import Questions from Sheets  | Questions loaded successfully without errors               | Questions displayed correctly                              |
-| Error Handling (Invalid Input)| User receives error message when entering any other        | Error message displayed as expected: Invalid input. Please |
-| when asnwering questions      | character than a number                                    | enter a number between 1 and 4                             |
-| Scoring System                | Points are correctly calculated and displayed              | Scoring system worked accurately and displayed correct     |
-|                               |                                                            | points                                                     |
-| CEFR Level Determination      | User is assigned the correct CEFR level based on score     | CEFR level was accurately determined and matched expected  |
-|                               |                                                            | results                                                    |
-| Result Recording              | User results are saved to Google Sheets and JSON file      | Results recorded successfully in both Sheets and JSON file |
-|                               |                                                            | Success message corretly displayed                         |
-| Email Dispatch via Zapier     | User receives email with quiz results                      | Email sent successfully, user received results in their    |
-|                               |                                                            | inbox                                                      |
-| Error Handling (dispatch)     | Appropriate error message displayed                        | Correct error message displayed:                           |
-| to Zapier failed              |                                                            | Failed to send results. Status code:                       |
-|                               |                                                            | Error sending data to Z.:                                  |
+Together with my test users I reviewed the content on different devices to ensure all of the content is displayed as expected.
 
 
-### Bugs
+## Page Performance
 
-- When rewriting the code after deciding to use Google Sheets instead of a JSON file for a better future maintainability I ran into the issue that the score did not update although the question was answered correctly. With combination of using the raise keyword and debugging statements I was able to narrow down the problem to a value mismatch between Google Sheets and the Python code. The fucntions ask_question() and comprehension_quiz() were expecting an integer matching the user input while I had saved 'A', 'B', 'C', 'D' as value for 'Correct answer'. I fixed this by updating the value for 'Correct answer' to integers for the vocabulary and grammar sheet and implmeneting the ord() method into comprehension_quiz due to the different structure of the sheet (non-unique headings).
+  ### Mobile
 
-- When fixing the error of the scores not updating I briefly forgot that lists are zero-indexed while the sheets in Google Sheets start with '1' which resulted in the enumeration being off for the vocab_sheet and the grammar_sheet, starting with '1.' for the question instead of '1.' for the first answer option. I fixed this by reviewing the structure of my sheets and adjusting the indices accordingly.
+Home Pagew
+![Home page](readme_media/p_mobile_home.png)
 
-- When testing the app after implementing send_to_zapier_webhook() I noticed that within the mock terminal the error message "Error sending data to Z.: No such file or directory: 'zapier_webhook_url.txt'" was printed to the terminal although the results_sheet was updated correctly and I received the results email from Zapier. After confirming the code itself to be correct using debugging statements I checked the relevant part of the code in PEP8online and located an incorrect indentation plus a trailing whitespace. Correcting these resolved the error.
+Category Page
+![Category page](readme_media/p_mobile_category.png)
+
+Recipe Detail Page
+![Recipe detail page](readme_media/p_mobile_recipe_detail.png)
+
+About Page
+![About page](readme_media/p_mobile_about.png)
+
+Weekly Tip
+![Weekly tip page](readme_media/p_mobile_weekly_tip.png)
+
+Page for Login
+Logout / Sign-Up
+![Login_Logout_SignUp](readme_media/p_mobile_login_logout_signup.png)
+
+
+
+  ### Desktop
+
+Home Page
+![Home page](readme_media/p_desktop_home.png)
+
+Category Page
+![Category page](readme_media/p_desktop_category.png)
+
+Recipe Detail Page
+![Recipe detail page](readme_media/p_desktop_recipe_detail.png)
+
+About Page
+![About page](readme_media/p_desktop_about.png)
+
+Weekly Tip
+![Weekly tip page](readme_media/p_desktop_weekly_tip.png)
+
+Page for Login
+Logout / Sign-Up
+![Login_Logout_SignUp](readme_media/p_desktop_login_logout_signup.png)
+
+
+
+                                                                           
+| Feature Tested                   | Expected Outcome                                                  | Error Fall-safes or Expected Error Handling      |
+|----------------------------------|-------------------------------------------------------------------|--------------------------------------------------|
+| Navbar Home Button               | Navigates to the homepage                                         | Page loads with no errors                        |
+| Navbar Recipes Dropdown          | Displays a dropdown menu of recipe categories                     |                                                  |
+|                                  | when hovered over                                                 | Dropdown menu correctly lists categories; no     |
+|                                  |                                                                   | errors are displayed                             |
+| Navbar Recipes Dropdown Selection| Navigates to the selected category page                           | Redirects to category page or shows "No recipes  |
+|                                  |                                                                   | found" message                                   |
+| Navbar About Button              | Navigates to the About page                                       | Page loads with the correct About content; no    |
+|                                  |                                                                   | errors displayed                                 |
+| Navbar Weekly Tip Button         | Navigates to the Weekly Tip page                                  | Weekly Tip page loads correctly with tip content |  
+|                                  |                                                                   | or fallback tip                                  |
+| Navbar Login Button              | Navigates to the Login page for unauthenticated users             | Login form loads correctly, error message for    |
+|                                  |                                                                   | invalid credentials                              |
+| Navbar Register Button           | Navigates to the Signup page                                      | Signup page loads correctly, shows validation    |
+|                                  |                                                                   | errors if invalid                                |
+| Navbar Logout Button             | Logs out authenticated user                                       | User is redirected to the homepage               |
+|                                  |                                                                   |                                                  |
+| Scroll down button               | Navigates to next section, bumbs up and down periodically to let  | button is displyed at all time even if click     |
+|                                  | the user know there is content below the hero image               | functionality should fail                        |
+|                                  |                                                                   |                                                  |  
+| Social Media Links               | Opens respective social media page in a new tab                   | Includes`target="_blank"' element; ensures lin   |
+|                                  |                                                                   | opens in a new tab                               |
+| Read More button                 | Navigates to the recipe detail page with full recipe content      | If recipe not found, 404 error is displayed      |
+|                                  |                                                                   |                                                  |
+| Hover over Navbar Dropdown       | Dropdown menu expands with categories                             | Handles hover functionality without JavaScript   |
+|                                  |                                                                   | errors                                           |
+| Static Asset Loading             | Loads all CSS, JS, and fonts correctly                            | Error message or console log if assets fail to   |
+|                                  |                                                                   | load                                             |
+|                                  |                                                                   |                                                  |
+| SEO and Accessibility Tags       | Provides meaningful aria labels and meta tags                     | Validates no missing or invalid aria-label or    |
+|                                  |                                                                   | meta-tag warnings                                |
+
+
+
+### Bugs and Resolutions
+
+
+1. **TemplateDoesNotExist Error**
+    - **Issue:** Template paths were not correctly defined, causing Django to throw errors.
+    - **Solution:** Adjusted the app's TEMPLATES setting and ensured proper folder structures.
+
+
+2. **BlogPost and Recipe Description Compatibility**
+    - **Issue:** Recipes created before fixing integration issue of Summernote didn't display descriptions properly afterwards
+    - **Solution:** Backfilled missing excerpt and description data using Django Shell.
+
+
+3. **Comment Deletion by Users**
+    - **Issue:** When reviewing the User Stories created I noticed that I had forgotten to add a Delete-button resulting in Users being unable to delete their own comments.
+    - **Solution:** Added delete_comment view and corresponding button in the recipe_detail.html.
+
+    
+4. **Truncated Text in Templates**
+    - **Issue:** Long descriptions cluttered the index.html and category.html due to same field being used in recipe_detail.html
+    - **Solution:** Tried to add methods (truncated_description, truncated_snippet) to models and updated templates. When that kept causing cascading errors I added a new field named "excerpt" to the recipe model which now gives the user the option to additionally add an attention-catching hook for displaying the recipe on home page and category page.
+
+
+5. **Missing Admin Filters**
+    - **Issue:** Dynamic Summernote integration removed admin filters.
+    - **Solution:** Reinstated filters in admin.py for key models.
+
+
+6. **Weekly Tip Page Newsletter**
+    - **Issue:** Newsletter functionality was missing.
+    - **Solution:** Implemented a newsletter form, added validation, and integrated backend management.
+
+
+7. **Blog Detail View**
+    - **Issue:** blog_detail needed to reuse recipe_detail.html toavoid having to create another template after amending the Blogpost model to fix the problem of new posts added not automatically being displayed in Latest-Blogpost-Section on Homepage
+    - **Solution:** Updated the blog_detail view to pass relevant data dynamically.
+
 
 
 ### Remaining Bugs:
 
-There are no bugs remaining.
+-> no known bugs remaining; all parts of the application worked as expected during manual testing
 
 
 ### Validator Testing:
 
+W3C CSS: no errors detected (no option to create URL link to paste here)
+W3C HTML: multiple errros returned across all files caused by Django templating language
+JSHint: no errors detected
 
 ### Automated Testing
 
@@ -298,7 +381,24 @@ There are no bugs remaining.
   -> created a test folder for each app and a test- file for each .py-file
 
   blog app:
-  
+  -> 1 import error (redirect missing) fixed
+  -> one error in calculating average rating fixed -> float() added for a more precise result
+  -> repeated error in test_signal.py due to test environmentv not able to reproduce signal
+
+  froms.py
+  -> no errors detected
+
+  about.py:
+  -> repeated error caused by link to cloudinary due to sample picture stored locally -> test function in test_about_page_context refactored _. error remains
+
+  weekly_tips.py: 
+  -> repeated error that file could not be detected
+
+  troubleshooting; debugging with 
+  -> python manage.py test weekly_tip --verbosity 
+  -> python -m unittest discover weekly_tip/tests
+  -> python manage.py test weekly_tip.tests.test_models
+  -> ran python manage.py test --verbosity 3 --failfast -> grabbed all files and returned only the errors known and described above
 
 
 ## Technology Stack
@@ -309,6 +409,17 @@ There are no bugs remaining.
   - Media Management: Cloudinary
   - Rich Text Editor: Django Summernote
   - Authentication: Django AllAuth
+
+
+
+## Code Quality and Version Control
+
+- PEP8 Compliance: The code has been checked against PEP8 standards using .Flake and autopep8
+
+- Comments: Functions and classes include docstrings to describe their purpose, inputs, and outputs.
+
+- Version control is managed using Git and GitHub, with a focus on maintaining a clean and organized history. Regular commits follow a consistent format and describe the features implemented and/or reasons for changes made to existing features.
+
 
 
 ## Deployment
