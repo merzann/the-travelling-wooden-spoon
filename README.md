@@ -38,26 +38,59 @@ The live link can be found here - https://the-travelling-wooden-spoon-499c1c443d
 
 
 
-## 
+## Features
+
+### Existing Features
+
+## Color Palette
+
+- The color palettes, dark earthy tones, are used throughout the project. The colors stand in a wunderful contrast to the the bright und colourful images of the food presented. The earth where vegetables grow is auburn, the plants that grow fruits are green and color of the kitchen staff is white. The clear message is that cooking is fun and satisfying. Food brings us together, food is a topic everyone has something to say about. A good meal lifts our spirit and the colours chosen, together with the overall layout of the page, invite the user to hang around and explore.
+
+
+
+## Landing page
+
+The hero section is the first part the user sees when landing on the home page. The user is greeted with screnery from a kitchen in the morning, the sun shining through the window, a steaming coffee pot in the front next to a cup of black coffee. The name of the blog, "The Travelling Wooden Spoon, is written in large, sweeping letters from left to right and the next thing that certainly catches the user attention is a button in the middle of the page, colored in subdued cinnebar red, and "Explore recipes" written on it white. Ok, this page has something to do with food. Let's explore!
+
+The user now has mulitple options. They can head straight to the navbar and the dropdown menu which, upon clicking, opens up to display the clickable categories or the user does what most curious people tend to do: simply click the big button in the middle.  That will open up a modal, styled like a wooden billboard outside a restaurant, and similar to that board, the user also finds here an overview of the categories which, of course, are clickable and will bring the user to the next subpage. 
+
+By now, every user will also have noticed the little bouncing icon at the bottom of the page, a double angle arrow down, insistingly begging for attention. Upon clicking that icon the page automatically scrolls down to the next section with featured recipies. Here the user finds a short engaging text combined with an image of the dish and emojis that convey more information, e.g. this dish is healthy or this dish is perfect for your next party. the way all the information is arranged aims to get the user hooked and whetting their appetite for more. Due to the size of the cards displaying the different dishes even a little scrolling allows for the next card or section to peak in letting the user know there is more underneath.
+
+The featured recipe secton is followed by the Latest Blogpost section which displays the recipes posted last. The last section then is displaying the the most popular recipes, displaying the recipes rated best, a model in the back taking care of the equation. All of these sections in common is that each card has button on it, also in cinnebar red, reading "Read More". Clicking that button brings the user straight to the recipe detail page with the full recipe.
+
+The last part of the part of the page is the footer, colored in auburn, repeating the color of the header and wonderfully contrasting with the milky white of the body closing the first chapter of the blog.
+
+
 
 Hero Section on Mobile
-![Hero Section page on Mobile](readme_media/Homepage_mobilde_hero.png)
+![Hero Section page on Mobile](readme_media/Homepage_mobile_hero.png)
 
 Hero Section on Desktop
-![Hero Section on Desktop](readme_media/Homepage_Desktop_hero.png)
+![Hero Section on Desktop](readme_media/homepage_desktop_hero.png)
 
-- 
+Popular recipes
+![Popular recipes section](readme_media/popular_recipes.png)
 
-## Scoring
+Featured recipes
+![Featured recipes section](readme_media/featured_recipes.png)
 
-- Vocabulary Section: 
-    - Each correct answer scores 1 point (maximum 15 points).
-- Grammar Section: 
-    - Each correct answer scores 1 point (maximum 15 points).
-- Text Comprehension Section: 
-    - Each correct answer scores 4 points (maximum 20 points).
+Latest Blogposts
+![Latest Blogpost section](readme_media/latest_blogposts.png)
 
 
+
+## Category page
+
+The category page is where the journey of the user continues. When arriving here the user has already made a decision. Yes, I am interested and yes, I want to know more! The category page repeats the color scheme of the landing page but instead of providing a brief overview of many dishes the user is now greeted by one single dish on a large card, displaying the image of the dish and, again, the short, but now far-better-to-read-excerpt.
+
+To keep the user's attention, the cards are arranged in a carousel and that for two reasons. Firstly, it allows for a the cards to slowly exchange place on their own in a smooth user-friendly way but more importingly, most users will look at the content on their tablet or their mobile. And what are we doing on a mobile: we swipe! And we prefer to swipe, rather then tapping away on the screen which can get difficult at times, particularly in winter when wearing gloves.
+So user has now the possibility to get more familiar with different dishes in a comfortable way but also has the option to jump to another category easily by either clicking on the dropdown icon or on 'Recipes' when looking at the content on larger screens.
+
+The cards displayed also spot the same cinnebar red button reading "Read More". Clicking that button then transfers  the user to their final destination, the recipe detail page, which finally contains the full recipe information including ingredients, preparation and glossary.
+
+
+Category page
+![Category page](readme_media/category.png)
 
 ## CEFR Levels
 
@@ -91,9 +124,6 @@ The total score determines the user's CEFR level:
 7. Again the user is informed that they will also receive their results via email. The email will be sent automatically after a few minutes through a ZAP.
 
 
-## Features
-
-### Existing Features
 
 ## Home page
 
@@ -303,8 +333,8 @@ Logout / Sign-Up
 |                                  |                                                                   | errors if invalid                                |
 | Navbar Logout Button             | Logs out authenticated user                                       | User is redirected to the homepage               |
 |                                  |                                                                   |                                                  |
-| Scroll down button               | Navigates to next section, bumbs up and down periodically to let  | button is displyed at all time even if click     |
-|                                  | the user know there is content below the hero image               | functionality should fail                        |
+| Scroll down double angle         | Navigates to next section, bounces up and down periodically to let| button is displyed at all time even if click     |
+| button                           | the user know there is content below the hero image               | functionality should fail                        |
 |                                  |                                                                   |                                                  |  
 | Social Media Links               | Opens respective social media page in a new tab                   | Includes`target="_blank"' element; ensures lin   |
 |                                  |                                                                   | opens in a new tab                               |
