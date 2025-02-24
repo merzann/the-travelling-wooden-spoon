@@ -120,6 +120,7 @@ def recipe_detail(request, recipe_id):
 
     context = {
         "recipe": recipe,
+        "description": recipe.description,
         "average_rating": recipe.calculate_average_rating(),
         "comments": comments,
         "form": form,
