@@ -36,9 +36,9 @@ def homepage(request):
         'recipe'
     ).order_by('-recipe__total_rating')[:3]
     latest_recipes = Recipe.objects.filter(status=1).order_by('-date')[:3]
-    popular_recipes = Recipe.objects.filter(
-        status=1
-    ).order_by('-popularity_score')[:3]
+    popular_recipes = Recipe.objects.filter(status=1).all().order_by(
+        '-popularity_score', '-rating_count'
+    )[:3]
     latest_blog_posts = BlogPost.objects.filter(
         recipe__status=1
     ).order_by('-date')[:3]
@@ -147,6 +147,7 @@ def recipe_detail(request, recipe_id):
             if 1 <= star_rating <= 5:
                 recipe.total_rating += star_rating
                 recipe.rating_count += 1
+                recipe.popularity_score = recipe.calculate_average_rating()
                 recipe.save()
         elif "body" in request.POST:
             form = CommentForm(request.POST)
