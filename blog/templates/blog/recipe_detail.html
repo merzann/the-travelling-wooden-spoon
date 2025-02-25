@@ -4,17 +4,6 @@
 {% block content %}
 
 <main class="container-fluid col-md- col-xl-11 py-4 recipe-detail">
-
-    <!-- Messages block -->
-    {% if messages %}
-    <div>
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-        {% endfor %}
-    </div>
-    {% endif %}
     <h1 class="text-center mb-4">{{ recipe.title|safe }}</h1>
     <div class="row g-4 justify-content-center">
 

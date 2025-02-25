@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.timezone import now
 from django.contrib import messages
 from .models import WeeklyTip, Subscriber
@@ -25,7 +25,6 @@ def weekly_tip(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
 
-        # Handle newsletter sign-up
         if name and email:
             if not Subscriber.objects.filter(email=email).exists():
                 Subscriber.objects.create(name=name, email=email)
@@ -36,5 +35,7 @@ def weekly_tip(request):
                 messages.warning(request, 'You are already subscribed.')
         else:
             messages.error(request, 'Both name and email are required.')
+
+        return redirect('weekly_tip')
 
     return render(request, 'weekly_tip/weekly_tip.html', {'tip': tip})
