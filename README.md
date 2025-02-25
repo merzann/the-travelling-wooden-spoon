@@ -6,6 +6,11 @@
 - [Features](#features)
   - [Existing Features](#existing-features)
   - [Features left to implement](#features-left-to-implement)
+- [The Admin Panel](#the-admin-panel)
+  - [Features](#features)
+  - [Actions and Filters](#actions-and-filters)
+  - [Adding and Editing Entries](#adding-and-editing-entries)
+- [Security Features and Error Handling](#security-features-and-error-handling)
 - [Testing](#testing)
   - [Initial Checks](#initial-checks)
   - [Page performance](#page-performance)
@@ -46,7 +51,7 @@ The live link can be found here - https://the-travelling-wooden-spoon-499c1c443d
 
 ## Color Palette
 
-The color palettes, dark earthy tones, are used throughout the project. The colors stand in a wunderful contrast to the the bright und colourful images of the food presented. The earth where vegetables grow is auburn, the plants that grow fruits are green and color of the kitchen staff is white. The clear message is that cooking is fun and satisfying. Food brings us together, food is a topic everyone has something to say about. A good meal lifts our spirit and the colours chosen, together with the overall layout of the page, invite the user to hang around and explore.
+The color palettes, dark earthy tones, are used throughout the project. The earth in which vegetables grow is auburn, the plants that grow fruits are green and color of the kitchen staff is white. The colors stand in a wunderful contrast to the the bright und colourful images of the dishes. The clear message here is that cooking is fun, satisfying and rewarding. Food brings us together, food is a topic everyone has something to say about. A good meal lifts our spirit and the colours chosen, together with the overall layout of the page, invite the user to stick around and explore.
 
 
 ## Landing page
@@ -425,13 +430,13 @@ The dashboard provides an overview of administrative activities, recent actions,
 
 ---
 
-## Actions & Filters
+## Actions and Filters
 - Each section allows **bulk actions** such as **deletion, approval, and verification**.
 - Filters help administrators navigate large datasets effectively.
 
 ---
 
-## Adding & Editing Entries
+## Adding and Editing Entries
 Each section provides an **"Add"** button to introduce new entries. Editing pages offer:
 - **Text fields** for names, descriptions, and metadata.
 - **Rich text editor** for adding formatted content.
@@ -441,7 +446,7 @@ Each section provides an **"Add"** button to introduce new entries. Editing page
 ----
 ----
 
-# Security Features & Error Handling
+# Security Features and Error Handling
 
 ## Security Features
 
@@ -528,6 +533,8 @@ A **robust error-handling mechanism** is in place to **prevent crashes, improve 
 - **Retries and fallbacks** are used for essential external requests.
 - **Descriptive API error responses** guide developers in debugging failed requests.
 
+---
+---
 
 # Testing
 
@@ -631,7 +638,8 @@ Together with my test users (age 25 - 74) I reviewed the content on different de
 | SEO and Accessibility Tags       | Provides meaningful aria labels and meta tags                     | Validates no missing or invalid aria-label or    |
 |                                  |                                                                   | meta-tag warnings                                |
 
-
+---
+---
 
 ### Bugs and Resolutions
 
@@ -734,7 +742,6 @@ JSHint: no errors detected
 - Version control is managed using Git and GitHub, with a focus on maintaining a clean and organized history. Regular commits follow a consistent format and describe the features implemented and/or reasons for changes made to existing features.
 
 
-
 ## Deployment
     
 This project was deployed through Heroku
@@ -812,9 +819,10 @@ The live link can be found here - https://the-travelling-wooden-spoon-499c1c443d
 - Push to the branch (`git push origin feature-branch`)
 - Create a new Pull Request
 
+---
+---
 
-
-## Acknowledgement
+# Acknowledgement
 
 ### Content
 - The template used for building this project was provided by Code Institute on Github for student projects [p3-template](https://github.com/Code-Institute-Org/p3-template)
@@ -822,17 +830,22 @@ The live link can be found here - https://the-travelling-wooden-spoon-499c1c443d
 - I also would like to thank the Stack Overflow community for pointing me in the right direction whenever I was stuck and turning in circles in the middle of the night
 - As with all my projects I would like to extend a special thanks to my team of critical test users who helped me pinpoint and fix bugs and typos I had missed
 
+
 ### Media
 - images:  Freepik https://www.freepik.com/free-photos-vectors
 - recipes: "Das große Pasta Buch", Parragon Books ltd., 
   "Die schoensten Liebesrezepte" Ruth Johnson
 - most of the pictures belong to me
 
+---
+---
 
 ## Author
 
 - [merzann](https://github.com/merzann)
 
+---
+---
 
 ## License
 [![MIT License](https://img.shields.io/badge/License%20-%20MIT-olivgreen)](LICENSE.md)
