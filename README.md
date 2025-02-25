@@ -388,10 +388,14 @@ The Admin Panel is an intuitive and powerful tool that streamlines content and u
 ### **Dashboard Overview**
 The dashboard provides an overview of administrative activities, recent actions, and available sections for management. Administrators can access different models, including **Users, Recipes, Comments, Categories, Email Addresses, Subscribers, Homepage Features, and Weekly Tips**.
 
+![Dashboard Overview](readme_media/dashboard_overview.png)
+
 ### **User Management**
 - View, add, and delete users.
 - Filter users by **staff status, superuser status, or active status**.
 - Bulk delete users when necessary.
+
+![User management](readme_media/users.png)
 
 ### **Email Address Management**
 - View and manage email addresses.
@@ -399,34 +403,49 @@ The dashboard provides an overview of administrative activities, recent actions,
 - Assign email addresses as **primary**.
 - Delete unwanted email addresses.
 
+![Email management](readme_media/emails.png)
+
 ### **Recipe Management**
 - View, add, edit, and delete recipes.
 - Assign **categories** to recipes.
 - Track the **status** of recipes (**Draft** or **Published**).
 - Monitor **popularity scores**.
 
+![Recipe Moutanagement](readme_media/recipes.png)
+![Add recipe](readme_media/add_recipe.png)
+
 ### **Category Management**
 - View, add, and delete recipe categories.
 - Organize recipes under relevant **food categories**.
+
+![Category management](readme_media/categories.png)
 
 ### **Comment Moderation**
 - Approve, disapprove, or delete comments.
 - Filter comments based on **approval status**.
 - Manage user-generated feedback on recipes.
 
+![Comments Moderation](readme_media/comments.png)
+
 ### **Homepage Features**
 - Feature or remove recipes from the homepage.
 - Ensure **important recipes** gain visibility.
+
+![Featured recipes](readme_media/featured_recipes.png)
 
 ### **Weekly Tips Management**
 - Manage weekly tips for users.
 - Filter tips based on **publish date**.
 - Delete outdated or unnecessary tips.
 
+![Weekly Tips](readme_media/weekly_tips.png)
+
 ### **Subscriber Management**
 - View and manage **subscribers**.
 - Export subscriber lists as **CSV files**.
 - Delete inactive or unwanted subscribers.
+
+![Subscriber Management](readme_media/subscribers.png)
 
 ---
 
