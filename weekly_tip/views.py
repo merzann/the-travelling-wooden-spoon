@@ -1,11 +1,24 @@
 from django.shortcuts import render
 from django.utils.timezone import now
-from .models import WeeklyTip, Subscriber
 from django.contrib import messages
+from .models import WeeklyTip, Subscriber
 
 
 def weekly_tip(request):
-    """Get the latest published tip"""
+    """
+    Retrieves and displays the latest published weekly tip.
+
+    **Context:**
+    - ``tip``: The latest `WeeklyTip` that has a `publish_date` up to today.
+
+    Handles newsletter sign-up:
+    - Users can subscribe by submitting their name and email.
+    - Checks for duplicate subscriptions before adding new subscribers.
+    - Displays appropriate success or error messages.
+
+    **Template:**
+    :template:`weekly_tip/weekly_tip.html`
+    """
     tip = WeeklyTip.objects.filter(publish_date__lte=now()).first()
 
     if request.method == 'POST':
@@ -16,7 +29,9 @@ def weekly_tip(request):
         if name and email:
             if not Subscriber.objects.filter(email=email).exists():
                 Subscriber.objects.create(name=name, email=email)
-                messages.success(request, 'You have successfully signed up for the newsletter.')
+                messages.success(
+                    request, 'You have successfully signed up for the '
+                    'newsletter.')
             else:
                 messages.warning(request, 'You are already subscribed.')
         else:
