@@ -23,7 +23,9 @@
 - [License](#license)
 
 
-## Overview
+## About the project
+Cooking has always been a passion of mine, a way to decompress from a stressful day at work, a reward for a task successfully completed, a way to bring people together and have a good time. Creating a food blog has been sitting in the back of my head for years and when people around me kept telling me they loved my dishes and all the little tips that came with them I finally decided it's time to go ahead and create The Travelling Wooden Sppon.
+
 The Travelling Wooden Spoon is a dynamic blog application focused on recipes, weekly cooking tips, and engaging user interactions. Users can browse recipes, view blog posts, create an account in order doe rate recipes orleave comments, read weekly tips,und sign up for a weekly newsletter to stay up to date. 
 
 The application supports a rich feature set, including user authentication, newsletter subscriptions, and automated blog updates when new recipes are published.
@@ -44,204 +46,487 @@ The live link can be found here - https://the-travelling-wooden-spoon-499c1c443d
 
 ## Color Palette
 
-- The color palettes, dark earthy tones, are used throughout the project. The colors stand in a wunderful contrast to the the bright und colourful images of the food presented. The earth where vegetables grow is auburn, the plants that grow fruits are green and color of the kitchen staff is white. The clear message is that cooking is fun and satisfying. Food brings us together, food is a topic everyone has something to say about. A good meal lifts our spirit and the colours chosen, together with the overall layout of the page, invite the user to hang around and explore.
-
+The color palettes, dark earthy tones, are used throughout the project. The colors stand in a wunderful contrast to the the bright und colourful images of the food presented. The earth where vegetables grow is auburn, the plants that grow fruits are green and color of the kitchen staff is white. The clear message is that cooking is fun and satisfying. Food brings us together, food is a topic everyone has something to say about. A good meal lifts our spirit and the colours chosen, together with the overall layout of the page, invite the user to hang around and explore.
 
 
 ## Landing page
 
-The hero section is the first part the user sees when landing on the home page. The user is greeted with screnery from a kitchen in the morning, the sun shining through the window, a steaming coffee pot in the front next to a cup of black coffee. The name of the blog, "The Travelling Wooden Spoon, is written in large, sweeping letters from left to right and the next thing that certainly catches the user attention is a button in the middle of the page, colored in subdued cinnebar red, and "Explore recipes" written on it white. Ok, this page has something to do with food. Let's explore!
+The homepage of **The Travelling Wooden Spoon** is designed to be an engaging, user-friendly introduction to the blog, seamlessly guiding visitors from discovery to deeper engagement with featured recipes, blog posts, and subscription options. It is designed for a **seamless, engaging user experience**, leading visitors from **first impression to deeper exploration** through a well-structured, visually appealing, and intuitive interface.
 
-The user now has mulitple options. They can head straight to the navbar and the dropdown menu which, upon clicking, opens up to display the clickable categories or the user does what most curious people tend to do: simply click the big button in the middle.  That will open up a modal, styled like a wooden billboard outside a restaurant, and similar to that board, the user also finds here an overview of the categories which, of course, are clickable and will bring the user to the next subpage. 
+By integrating **manual and automated content updates**, the homepage remains **dynamic and fresh**, making it easy for visitors to stay engaged and return for more culinary inspiration.
 
-By now, every user will also have noticed the little bouncing icon at the bottom of the page, a double angle arrow down, insistingly begging for attention. Upon clicking that icon the page automatically scrolls down to the next section with featured recipies. Here the user finds a short engaging text combined with an image of the dish and emojis that convey more information, e.g. this dish is healthy or this dish is perfect for your next party. the way all the information is arranged aims to get the user hooked and whetting their appetite for more. Due to the size of the cards displaying the different dishes even a little scrolling allows for the next card or section to peak in letting the user know there is more underneath.
+The homepage consists of the following sections:
 
-The featured recipe secton is followed by the Latest Blogpost section which displays the recipes posted last. The last section then is displaying the the most popular recipes, displaying the recipes rated best, a model in the back taking care of the equation. All of these sections in common is that each card has button on it, also in cinnebar red, reading "Read More". Clicking that button brings the user straight to the recipe detail page with the full recipe.
+1. **Hero Section**
+2. **Featured Recipes**
+3. **Latest Blog Posts**
+4. **Popular Recipes**
+5. **Newsletter Signup**
 
-The last part of the part of the page is the footer, colored in auburn, repeating the color of the header and wonderfully contrasting with the milky white of the body closing the first chapter of the blog.
+Each section is designed with both desktop and mobile responsiveness in mind, ensuring a smooth browsing experience across different devices.
 
 
+### Hero Section
 
-Hero Section on Mobile
+✨ First Impressions Matter
+- The **hero section** is the first thing users see upon landing on the homepage.
+- It features a **beautiful morning kitchen scene** with a steaming coffee pot, sunlight streaming through a window, and a cup of coffee in the foreground.
+- The **blog name**, *The Travelling Wooden Spoon*, is displayed in **large, elegant typography**.
+- Below the title is a tagline: **“Discover delicious recipes and cooking tips.”**
+- A **cinnebar red “Explore Recipes” button** is centrally positioned, inviting users to dive deeper.
+- A **bouncing down-arrow icon** encourages users to scroll down to the next section.
+- **Navigation Options**: Users can either click the **“Explore Recipes”** button (which opens a category overview modal styled like a wooden restaurant board) or use the **navigation bar** to access different sections.
+
 ![Hero Section page on Mobile](readme_media/Homepage_mobile_hero.png)
-
-Hero Section on Desktop
 ![Hero Section on Desktop](readme_media/homepage_desktop_hero.png)
 
-Popular recipes
-![Popular recipes section](readme_media/popular_recipes.png)
 
-Featured recipes
+### Featured Recipes
+- This section highlights a curated selection of **top recipes**, complete with:
+  - **High-quality images** of each dish
+  - **Concise descriptions** that include key attributes
+  - **Emojis** that visually communicate aspects such as healthiness, preparation time, and suitability for occasions like parties.
+  - A **cinnebar red “Read More” button** on each card, leading to the full recipe.
+- Maintained via the **Admin Panel**, allowing the blog owner to update it as needed.
+- On **mobile devices**, the layout ensures that the next card peeks in slightly, signaling to the user that there’s more to explore.
+
 ![Featured recipes section](readme_media/featured_recipes.png)
 
-Latest Blogposts
+### Latest Blog Posts
+- Displays the **most recently published** recipes.
+- This section is **automatically updated** by fetching data from the database.
+- Each blog post preview features:
+  - **A compelling image**
+  - **A short description**
+  - **A “Read More” button** leading to the full post.
+
 ![Latest Blogpost section](readme_media/latest_blogposts.png)
 
+### Popular Recipes
+- Showcases the **highest-rated recipes**, determined by user ratings.
+- This section is **dynamically updated** based on ratings stored in the database.
+- Like the previous sections, each recipe card includes:
+  - **A mouthwatering image**
+  - **A brief yet engaging description**
+  - **A “Read More” button** to access the full recipe details.
+
+![Popular recipes section](readme_media/popular_recipes.png)
+
+### Newsletter Signup
+- The **final section** of the homepage encourages users to **subscribe to the newsletter**.
+- Includes a **simple sign-up form** with fields for **Name** and **Email**.
+- A **bold cinnebar red “Subscribe” button** allows users to opt-in for weekly cooking tips and updates.
+
+![Hero Section on Desktop](readme_media/homepage_part5_newsletter.png)
 
 
 ## Category page
 
-The category page is where the journey of the user continues. When arriving here the user has already made a decision. Yes, I am interested and yes, I want to know more! The category page repeats the color scheme of the landing page but instead of providing a brief overview of many dishes the user is now greeted by one single dish on a large card, displaying the image of the dish and, again, the short, but now far-better-to-read-excerpt.
+The **Category Page** makes discovering new dishes both visually appealing and user-friendly, ensuring an engaging and seamless experience for all food lovers. It provides a **smooth, interactive browsing experience** while maintaining consistency with the platform’s overall design. 
+This section retains the visual harmony of the **landing page** but shifts focus to a **featured dish**, displayed prominently on a large **recipe card**. 
+Each card showcases:
 
-To keep the user's attention, the cards are arranged in a carousel and that for two reasons. Firstly, it allows for a the cards to slowly exchange place on their own in a smooth user-friendly way but more importingly, most users will look at the content on their tablet or their mobile. And what are we doing on a mobile: we swipe! And we prefer to swipe, rather then tapping away on the screen which can get difficult at times, particularly in winter when wearing gloves.
-So user has now the possibility to get more familiar with different dishes in a comfortable way but also has the option to jump to another category easily by either clicking on the dropdown icon or on 'Recipes' when looking at the content on larger screens.
-
-The cards displayed also spot the same cinnebar red button reading "Read More". Clicking that button then transfers  the user to their final destination, the recipe detail page, which finally contains the full recipe information including ingredients, preparation and glossary.
-
-
-Category page
-![Category page](readme_media/category.png)
-
-## CEFR Levels
-
-The total score determines the user's CEFR level:
-
-- A1 - Beginner: 0-10 points
-- A2 - Elementary: 11-20 points
-- B1 - Lower Intermediate: 21-30 points
-- B2 - Upper Intermediate: 31-40 points
-- C1 - Advanced: 41-45 points
-- C2 - Proficient: 46-50 points
+- A **high-resolution image**
+- A **concise yet engaging description**
+- **Key attributes** such as health benefits, popularity, and preparation time
 
 
+### 🎡 Carousel Layout
+To enhance user interaction, the **Category Page** features a **carousel layout**. This serves two primary purposes:
 
-## How the English Level Assessment Quiz works
+1. **Seamless Browsing Experience** – The cards transition smoothly, allowing users to explore dishes effortlessly.
+2. **Optimized for Mobile & Tablet Users** – Most users browse on mobile devices, where swiping feels more intuitive than tapping, especially when wearing gloves in colder seasons.
 
-1. The user starts the quiz by clicking "RUN PROGRAM"
+Users can **swipe through different dishes** or **navigate to other categories** via the **dropdown menu** or the **"Recipes" tab** on larger screens.
 
-2. The command interface greets the user with a welcome message and a short information about the assessment quiz, how to answer the questions and an information that they will receive an email with the results after completing the quiz.
 
-3. Then the user is prompted to enter their name and email address. 
+Each card includes a **bold cinnabar red "Read More" button**, guiding users to the **Recipe Detail Page**. There, they will find:
 
-4. The next step is to answer a sample question which demonstrates to the user that they need to input the number (1-4) corresponding to the answer option chosen. 
+- Complete recipe details
+- Ingredients list
+- Step-by-step preparation instructions
+- Glossary terms for better understanding
 
-5. The test loads and the user is presented the first question. There are 4 options given to answer the question with one option being correct.
-    A new question is displyed after the user has answered the previous one.
-    'Current score' displays the score achieved up to this point to the user.
-
-6. When the user has completed the quiz they receive a message "Quiz complete!", their scores, sorted by category, and their overall CEFR.
-
-7. Again the user is informed that they will also receive their results via email. The email will be sent automatically after a few minutes through a ZAP.
+![Category page](readme_media/category_page.png)
 
 
 
-## Home page
+## Recipe_Detail page
 
-Hero Section on Mobile
-![Hero Section page on Mobile](readme_media/Homepage_mobilde_hero.png)
-
-Hero Section on Desktop
-![Hero Section on Desktop](readme_media/Homepage_Desktop_hero.png)
-
-### Import questions from Google Sheets
-
-        The application requires 4 worksheets:
-
-#### Vocabulary sheet/Grammar sheet
-- The vocabulary sheet is structured is follows:
-    - column 1: questions
-    - column 2-4: answer options A-D
-    - column 5: correct answer
-
-![Vocabulary Sheet](./readme_media/vocab_sheet.png)
-![Grammar Sheet](./readme_media/grammar_sheet.png)
-
-#### Comprehension Sheet
-- The comprehension sheet is structured as follows:
-    - column 1: reading text
-    - column 2: questions
-    - cloumn 3-6: answer options A-D
-    - column 7: correct answer
-
-![Comprehension Sheet](./readme_media/comprehension_sheet.png)
-
-#### Results sheet
-- The results sheet is structured as follows:
-    - column 1: Name
-    - column 2: Email
-    - cloumn 3: Vocabulary score
-    - column 4: Grammar score
-    - column 5: Comprehension score
-    - column 6: CEFR level
-
-![Results Sheet](./readme_media/results_sheet.png)
+The `recipe_detail` section provides a structured, visually engaging layout for presenting recipes. This section highlights key recipe information, ingredients, preparation steps, and additional metadata such as ratings, comments, and categorization tags. It is designed for clarity and ease of use, ensuring users can quickly understand and follow the recipe.
+The `rating` and `comment` section at the bottom of the page allow the user to rate the recipe and provide a space for the user to share their thoughts with the blog owner and the community through leaving a comment. Both features drive user interaction and enhance long-term community engagement.
 
 
-### Sample Question
+### **Recipe Title & Image**
+   - Displays the name of the dish prominently.
+   - Includes a high-resolution image of the prepared dish to enhance visual appeal and provide a reference for presentation.
 
-The user has to answer a sample question after entering their details. The sample question demomstrates to the user how the quiz works and the way how they have to enter their answer. The user receives immediate feedback when they enter any character other then a number.
+### **Recipe Description**
+   - A concise, engaging introduction to the dish.
+   - Highlights the key flavor combinations and textures.
+   - Provides insight into the occasion and suitability of the dish.
 
-![Sample Question](./readme_media/error_handling_sample_question.png)
+### **Icons for Key Attributes**
+   - `⏱️` Quick preparation time.
+   - `🎉` Party-friendly.
+   - `💖` Romantic/date-worthy.
+   - Additional attributes categorized in a glossary.
 
+![Recipe Detail page](readme_media/recipe_detail.png)
 
-### Administer quiz via command-line interface
+### **Ingredients List**
+   - Clearly organized and formatted.
+   - Includes exact quantities for easy repition of the recipe
+   - Differentiates between the main ingredients and additional components of the dish
 
-The assessment quiz runs in the Code-Institute mockup terminal in Heroku.
+### **Preparation Steps**
+   - Step-by-step instructions to guide users through the cooking process.
+   - Utilizes a clear and sequential format for easy readability.
+   - Baking or cooking temperatures and times are specified explicitly.
 
-![Administer Quiz](readme_media/initial_view.png)
+![Recipe Detail page](readme_media/ingredients_prep.png)
 
-The questions are staged when the assessment quiz has finished loading. 
-The questions are displayed one question after the other, the new question only after the user has answered the previous one and hit enter.
-
-![Questions Vocabulary](./readme_media/sample_question_quiz.png)
-![Questions Grammar](./readme_media/grammar_questions.png)
-![Text Comprehension](./readme_media/text_comprehension.png)
-    
-
-### Calculate and determine CEFR level
-
-While the user completes the quiz the score is updated for each question answered correctly: +1 in the vocabulary and grammar section, +4 in the section for text comprehension. 
-
-- `Current score` displays the points achieved up to this point to the user. A final interim score is calcualted and displayed to the user when a section is completed.
-- Upon completing the quiz the user is presented with their final score, their score for each section and their current CEFR level.
-
-![Final Score/CEFR Level](./readme_media/final_score.png)
-
-
-### Record and export results
-
-The result gets recorded in the results_sheet and results.json
-
-![Final Score/CEFR Level Sheet](./readme_media/resultsSheet.png)
-![Final Score/CEFR Level JSON](./readme_media/result_json.png)
-
-The app then sends the results to the ZAP and the user receives an email with their results for their records and a course recommendation.
-
-![Email Zap](./readme_media/email_zap.png)
-![Email Zap](./readme_media/email_zap(2).png)
+### **Helpful Cooking Tips**
+   - Additional insights about key ingredients.
+   - Suggestions on ingredient sourcing and possible substitutes.
 
 
-### Robust and user-friendly error handling
+### **Recipe Tags (Glossary)**
+   - Categorization labels for quick reference:
+     - `🍎 Healthy`
+     - `🏡 Traditional`
+     - `🍲 Hearty`
+     - `👶 For children`
+     - `⏱️ Quick`
+     - `🍷 Contains alcohol`
+     - `💖 Romantic/date-worthy`
+     - `⭐ Favourite`
+     - `🎉 Party-friendly`
 
-The error handling is robust and user-friendly, accounting for common errors caused by user action such as out of the bound or incorrect character input as well as for system issues, e.g. 
-- data not correctly pulled or pushed from and to external sheets
-- data not transmitted correctly to trigger the automated email the user receives after completing the test.
+![Recipe Detail page](readme_media/glossar.png)
+
+### **Recipe Credit & Source**
+   - Acknowledges the original author or publication.
+   - Provides proper attribution for ethical content sharing.
+
+### **User Ratings & Reviews**
+   - Displays average rating (out of 5 stars).
+   - Allows users to vote and leave comments and delete their comment if they wish to do so
+   - Highlights featured comments with timestamps and usernames.
+
+![Recipe Detail page](readme_media/comments_section.png)
 
 
-#### When the user inputs their name and email address:
-- The system allows a maximum of 20 characters for the name. Should the user enter more characters they will receive a message informing them that the max. length allowed is 20 characters.
+# About Me page
 
-- A feedback message is provided should the email entered not be in the correct format xxx@gmail.com
+The **About Me** page of *The Travelling Wooden Spoon* serves as an introduction to the blog's creator. It provides insight into my background, passions, and the inspirations behind my journey. The page is structured to offer a personal, engaging narrative while guiding visitors through the main themes of the blog telling them what to expect. It sets the tone for the rest of the blog, inspiring curiosity and engagement.
 
-![Error Handling user input: details](./readme_media/error_handling_user_input.png)
+## Key Features
+- **Image**: Sectoin for the profile iamge
+- **Personal & Engaging**: Written in a warm, narrative style to connect with the audience.
+- **Structured & Readable**: Sections are clearly divided, making it easy to navigate.
+- **Call to Action**: Encourages interaction and exploration of the blog.
+
+## Maintenance:
+- The "about Me"-page is maintained through the Admin Panel where the blog creator is able to add or change the profile picture as well as the sontent.
+
+![About Me](readme_media/about_me.png)
 
 
-#### When the user enters any other character than a number as input to answer a question:
-- Immediate feedback is provided when the user types in a letter or any other character which is not a number.
+## Weekly Tip
 
-![Error Handling user input: quiz answer](./readme_media/error_handling_sample_question.png)
+The **Weekly Tip** page provides visitors with helpful culinary tips and insights, updated regularly by the blog creator. This section enhances user engagement by offering practical kitchen knowledge, from measurement conversions to ingredient substitutions. The page is structured to present visually engaging content alongside well-formatted textual explanations. It offers a dynamic way to keep users engaged with fresh and valuable kitchen insights with another option to sign up for the Newslleter provided at the bottom. 
+With **easy maintenance through the Admin Panel** and enhanced styling via **Crispy Bootstrap**, it ensures a visually appealing and informative experience for all visitors.
+
+## Structure & Features
+
+### 📸 **Featured Image**
+- A **prominent image** related to the weekly tip is displayed at the top.
+- The image can be **updated through the Admin Panel**.
+
+### 📝 **Weekly Tip Content**
+- A **headline** introduces the week's tip in a bold, readable format.
+- The main content includes:
+  - A **detailed explanation** of the tip.
+  - **Practical kitchen advice**
+
+### ⚙️ **Admin Panel Maintenance**
+- The **blog creator** can update the page via the **Admin Panel**, enabling:
+  - **Image modifications**.
+  - **Content updates** for the weekly tip.
+  - **Enhanced styling and formatting** for better readability.
+
+### 📌 **Additional Functionalities**
+- Content is **dynamically updated** on a weekly basis.
+- A **publication timestamp** is displayed at the bottom.
+- A **newsletter sign-up section** is included at the bottom, allowing users to subscribe for regular updates.
+
+![Weekly Tip](readme_media/weekly_tip_top.png)
+![Weekly Tip](readme_media/weekly_tip_bottom.png)
 
 
-#### When a system push or pull request succeeds/fails:
 
-![Error Handling user input: system](./readme_media/system_error.png)
+## Navigation Bar & Footer
+
+### 🔝 Navigation Bar
+- The **navigation bar** is positioned at the top of the page and features a **dark background** with clearly visible menu options.
+
+- **Menu Items:**
+  - **Home**
+  - **Recipes (Dropdown)**
+    - Quick & Healthy
+    - The Asian Corner
+    - Tasty Recipes from Around Europe
+    - Vegetarian Dishes
+  - **About**
+  - **Weekly Tip**
+  - **Authentication Options:**
+    - **When logged out**: Displays `Register` and `Login` options.
+    - **When logged in**: Displays `Logout` instead.
+
+![Hero Section on Desktop](readme_media/navbar_desktop_Login_or_Register.png)
+![Hero Section on Desktop](readme_media/navbar_desktop_logout.png)
+
+- On **mobile screens**, the navbar collapses into a **hamburger menu** for easier navigation.
+- The **dropdown menu** for “Recipes” expands smoothly when hovered over or tapped on mobile.
+
+![Hero Section on Desktop](readme_media/nav-dropdown_mobile.png)
+
+
+### Footer
+- The **footer** is located at the bottom of the page and serves as a **static navigation element**.
+- It includes:
+  - **Copyright Information:** `Copyright © 2024 The Travelling Wooden Spoon`
+  - **Social Media Icons:**
+    - **Facebook**
+    - **Instagram**
+    - **YouTube**
+- The **dark background** provides a contrast that makes the footer elements easy to read and access.
+
+![Hero Section on Desktop](readme_media/footer.png)
+
+
+## User Feedback Messages
+
+The message banner is positioned at the top of the page, directly under the navigation bar, to provide users with clear feedback on actions performed.
+
+✅ Success Messages
+
+Displayed in a green notification banner.
+
+Used for:
+
+- Successful login/logout
+
+- Successful registration
+
+- Successful newsletter subscription
+
+Example:
+
+![Success Message](readme_media/success_message.png)
+
+❌ Failure Messages
+
+Displayed in a red notification banner.
+
+Used for:
+
+- Unsuccessful login attempts
+
+- Failed registration
+
+- Newsletter signup failure
+
+Example:
+
+![Action-failed Message](readme_media/fail_message.png)
+
+
+⚠️ Critical Error Messages
+
+Displayed in a red notification banner with a lighter background.
+
+Used for:
+
+- System issues preventing signups or logins
+
+- Unexpected errors
+
+Example:
+
+![Critical Error Message](readme_media/critical_error_message.png)
 
 
 ### Features left to implement
 
-- a freestyle section to test the students writing skills and get a better inside on their actual ability to use the language
-- randomizing of the questions within the sections to prevent cheating by restarting the test mutiple times or for the purpose of using the test for learning new language items
+- Recipe Search Functionality:
+  - Add a search bar to allow users to search for recipes.
 
+- Option to comment on "Weekly Tip" - Newsletter
+
+- Subpage including the culinary travel diary
+
+- Subpage including a BMI Calculator and more information surrounding this topic
+
+---
+---
+# The Admin Panel
+
+## Introduction
+The **Admin Panel** is a Django-powered backend interface designed to manage various aspects of the website efficiently. This panel enables administrators to manage users, recipes, comments, categories, email addresses, homepage features, and weekly tips.
+The Admin Panel is an intuitive and powerful tool that streamlines content and user management, providing admins with complete control over the platform. With **bulk actions, filtering capabilities, and an organized interface**, maintaining the website becomes seamless and efficient.
+
+---
+
+## Features
+### **Dashboard Overview**
+The dashboard provides an overview of administrative activities, recent actions, and available sections for management. Administrators can access different models, including **Users, Recipes, Comments, Categories, Email Addresses, Subscribers, Homepage Features, and Weekly Tips**.
+
+### **User Management**
+- View, add, and delete users.
+- Filter users by **staff status, superuser status, or active status**.
+- Bulk delete users when necessary.
+
+### **Email Address Management**
+- View and manage email addresses.
+- Mark email addresses as **verified**.
+- Assign email addresses as **primary**.
+- Delete unwanted email addresses.
+
+### **Recipe Management**
+- View, add, edit, and delete recipes.
+- Assign **categories** to recipes.
+- Track the **status** of recipes (**Draft** or **Published**).
+- Monitor **popularity scores**.
+
+### **Category Management**
+- View, add, and delete recipe categories.
+- Organize recipes under relevant **food categories**.
+
+### **Comment Moderation**
+- Approve, disapprove, or delete comments.
+- Filter comments based on **approval status**.
+- Manage user-generated feedback on recipes.
+
+### **Homepage Features**
+- Feature or remove recipes from the homepage.
+- Ensure **important recipes** gain visibility.
+
+### **Weekly Tips Management**
+- Manage weekly tips for users.
+- Filter tips based on **publish date**.
+- Delete outdated or unnecessary tips.
+
+### **Subscriber Management**
+- View and manage **subscribers**.
+- Export subscriber lists as **CSV files**.
+- Delete inactive or unwanted subscribers.
+
+---
+
+## Actions & Filters
+- Each section allows **bulk actions** such as **deletion, approval, and verification**.
+- Filters help administrators navigate large datasets effectively.
+
+---
+
+## Adding & Editing Entries
+Each section provides an **"Add"** button to introduce new entries. Editing pages offer:
+- **Text fields** for names, descriptions, and metadata.
+- **Rich text editor** for adding formatted content.
+- **Image upload** support for recipes and relevant sections.
+- **Dropdowns & toggles** to modify statuses and categories.
+
+----
+----
+
+# Security Features & Error Handling
+
+## Security Features
+
+Security is a critical aspect of the project, ensuring **data integrity, user protection, and system resilience** against malicious attacks. Security and error handling are **top priorities** for the project, ensuring a **secure, reliable, and user-friendly experience**. By enforcing **defensive coding practices, input validation, secure authentication, data encryption, and role-based access control**, we mitigate risks and protect both users and administrators. Error handling mechanisms further **improve stability and usability**, allowing the system to recover gracefully from unexpected failures.
+
+The following defensive coding techniques and security measures are implemented across the project:
+
+### **Authentication & Authorization**
+- **Django's built-in authentication system** is used to enforce user authentication.
+- Role-based access control (**RBAC**) differentiates **normal users, staff, and superusers** to limit permissions accordingly.
+- **Session expiration & inactivity logout** prevent unauthorized access if a session remains idle for too long.
+- **Two-factor authentication (2FA)** can be integrated for additional security.
+
+### **User Management & Account Security**
+- **Password hashing using Django’s PBKDF2 algorithm** (configurable with bcrypt, Argon2, or SHA-256) to secure stored credentials.
+- **Brute-force protection** via login attempt throttling to prevent repeated unauthorized login attempts.
+- Users must use **strong passwords**, enforced through Django’s built-in **password validators**.
+- **Email verification** is required for new account activation and password resets.
+- **Cross-Site Request Forgery (CSRF) protection** is enabled for all sensitive user actions.
+
+### **Data Protection & Input Validation**
+- **Form validation** prevents SQL injection, XSS (Cross-Site Scripting), and malicious inputs.
+- All input fields are sanitized before being stored in the database.
+- **Django ORM (Object-Relational Mapping)** is used instead of raw SQL queries to prevent SQL injection attacks.
+- **File uploads are restricted** to specific formats, and **size limits** are set to prevent abuse.
+- **Sensitive data is encrypted** before being stored, using Django’s **encrypted fields** or third-party libraries like **Fernet encryption**.
+
+### **API Security**
+- **JWT (JSON Web Tokens) or OAuth2 authentication** for API endpoints.
+- API rate limiting using **Django Rest Framework’s (DRF) throttling** to prevent abuse.
+- **CORS (Cross-Origin Resource Sharing) restrictions** are applied to prevent unauthorized API access.
+- **Input validation and serialization** ensure only properly formatted data is processed.
+
+### **Admin Panel Security**
+- **Admin panel access is restricted** to superusers and staff members.
+- **Recent admin actions are logged**, allowing audits for tracking changes.
+- **Bulk actions (delete, approve, mark verified)** require confirmation to prevent unintended modifications.
+- **Only verified email addresses** can be assigned as primary to prevent account impersonation.
+- **Superusers receive notifications for suspicious activity** within the admin panel.
+
+### **Content Moderation & Spam Prevention**
+- **Comment moderation system** allows administrators to approve or disapprove user comments before publishing.
+- **Honeypot techniques & reCAPTCHA** are used on forms to prevent bot submissions.
+- **Email verification** prevents spam accounts from engaging in malicious activities.
+
+### **Database Integrity Protection**
+- **Foreign key constraints** ensure related data is properly linked and prevent orphan records.
+- **Transactional integrity** is enforced using Django’s **atomic transactions** to prevent partial data updates in case of failure.
+- **Backups & automatic rollbacks** are scheduled to recover from accidental data loss or corruption.
+
+### **Logging & Monitoring**
+- **Django’s logging framework** is configured to track authentication attempts, errors, and suspicious activity.
+- **Error logs are monitored in real-time**, and alerts are triggered for repeated failed login attempts or unusual API usage.
+- **Third-party security monitoring tools**, such as Sentry, can be integrated to capture and analyze security breaches.
+
+---
+
+## Error Handling
+
+A **robust error-handling mechanism** is in place to **prevent crashes, improve usability, and log critical failures**.
+
+### **Form & Input Validation Errors**
+- User input validation provides **real-time feedback** to prevent incorrect submissions.
+- Custom **error messages** guide users toward resolving input issues.
+- **Try-except blocks** handle unexpected form errors gracefully.
+
+### **Authentication & Access Errors**
+- Unauthorized users attempting to access restricted pages are **redirected to the login page with an error message**.
+- **403 Forbidden and 401 Unauthorized responses** are properly returned in the API when access is denied.
+- **Invalid login attempts are logged**, and users are notified of suspicious login activity.
+
+### **Database & Model Errors**
+- **Atomic transactions** prevent database corruption by rolling back failed operations.
+- **Custom error handlers** catch and display meaningful error messages when database operations fail.
+- **Graceful handling of missing database records**, preventing "DoesNotExist" exceptions.
+
+### **Server & Application Errors**
+- **500 Internal Server Error pages** are customized to provide helpful debugging information for admins.
+- **404 Not Found pages** ensure missing routes or content do not break the application.
+- **Graceful degradation** is implemented to prevent complete system failure if one component goes down.
+
+### **API & External Service Errors**
+- **Timeout handling** ensures third-party API failures do not crash the application.
+- **Retries and fallbacks** are used for essential external requests.
+- **Descriptive API error responses** guide developers in debugging failed requests.
 
 
 # Testing
@@ -263,57 +548,55 @@ I had content reviewed by test users so I catch and fix typos and/or grammar err
 
 I thoroughly tested all buttons, carousel and scroll-down-icon on both mobile devices, tablets and desktop.
 
-Together with my test users I reviewed the content on different devices to ensure all of the content is displayed as expected.
+Together with my test users (age 25 - 74) I reviewed the content on different devices to ensure all of the content is displayed as expected.
 
 
 ## Page Performance
 
   ### Mobile
 
-Home Pagew
+- Home Page
 ![Home page](readme_media/p_mobile_home.png)
 
-Category Page
+- Category Page
 ![Category page](readme_media/p_mobile_category.png)
 
-Recipe Detail Page
+- Recipe Detail Page
 ![Recipe detail page](readme_media/p_mobile_recipe_detail.png)
 
-About Page
+- About Page
 ![About page](readme_media/p_mobile_about.png)
 
-Weekly Tip
+- Weekly Tip
 ![Weekly tip page](readme_media/p_mobile_weekly_tip.png)
 
-Page for Login
-Logout / Sign-Up
+- Page for Login / Logout / Sign-Up
 ![Login_Logout_SignUp](readme_media/p_mobile_login_logout_signup.png)
 
 
 
   ### Desktop
 
-Home Page
+- Home Page
 ![Home page](readme_media/p_desktop_home.png)
 
-Category Page
+- Category Page
 ![Category page](readme_media/p_desktop_category.png)
 
-Recipe Detail Page
+- Recipe Detail Page
 ![Recipe detail page](readme_media/p_desktop_recipe_detail.png)
 
-About Page
+- About Page
 ![About page](readme_media/p_desktop_about.png)
 
-Weekly Tip
+- Weekly Tip
 ![Weekly tip page](readme_media/p_desktop_weekly_tip.png)
 
-Page for Login
-Logout / Sign-Up
+- Page for Login / Logout / Sign-Up
 ![Login_Logout_SignUp](readme_media/p_desktop_login_logout_signup.png)
 
 
-
+## Manual Testing
                                                                            
 | Feature Tested                   | Expected Outcome                                                  | Error Fall-safes or Expected Error Handling      |
 |----------------------------------|-------------------------------------------------------------------|--------------------------------------------------|
