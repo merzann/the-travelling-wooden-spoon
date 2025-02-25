@@ -29,13 +29,13 @@
 
 
 ## About the project
-Cooking has always been a passion of mine, a way to decompress from a stressful day at work, a reward for a task successfully completed, a way to bring people together and have a good time. Creating a food blog has been sitting in the back of my head for years and when people around me kept telling me they loved my dishes and all the little tips that came with them I finally decided it's time to go ahead and create The Travelling Wooden Sppon.
+Cooking has always been a passion of mine, a way to decompress from a stressful day at work, a reward for a difficult or tenuous task successfully completed, a way to bring people together and a way of communication. The idea of creating a food blog has been on my mind for years. When people around me kept telling me they loved my dishes and all the little tips that came with them I finally decided it was time to go ahead and create The Travelling Wooden Spoon.
 
-The Travelling Wooden Spoon is a dynamic blog application focused on recipes, weekly cooking tips, and engaging user interactions. Users can browse recipes, view blog posts, create an account in order doe rate recipes orleave comments, read weekly tips,und sign up for a weekly newsletter to stay up to date. 
+The Travelling Wooden Spoon is a dynamic blog application focused on recipes, weekly cooking tips, and engaging user interactions. Users can browse recipes, view blog posts, create an account in order to rate recipes or leave comments, read weekly tips, and sign up for a weekly newsletter to stay up to date. 
 
 The application supports a rich feature set, including user authentication, newsletter subscriptions, and automated blog updates when new recipes are published.
 
-Admins can manage the content through the Django Admin Panel, utilizing tools like Summernote for styling their posts making them truly individual. They will love the history panel, that allows them to keep track of their post history, the scheduling section for creating and queueing posts in advance, then schedule them for future release and the option to export an up-to-date list of subscribern in csv-format for mailings.
+Admins can manage the content through the Django Admin Panel, utilizing tools like Summernote for styling their posts making them truly individual. They will love the history panel, that allows them to keep track of their post history, the scheduling section for creating and queueing posts in advance, then schedule them for future release and the option to export an up-to-date list of subscribers in CSV-format for mailings.
 
 The Travelling Wooden Spoon is a feature-rich platform for recipe enthusiasts. Its robust backend ensures seamless content management, while the frontend delivers a user-friendly experience. With the bugs resolved and planned enhancements, the project is well-positioned for growth and engagement.
 
@@ -51,7 +51,7 @@ The live link can be found here - https://the-travelling-wooden-spoon-499c1c443d
 
 ## Color Palette
 
-The color palettes, dark earthy tones, are used throughout the project. The earth in which vegetables grow is auburn, the plants that grow fruits are green and color of the kitchen staff is white. The colors stand in a wunderful contrast to the the bright und colourful images of the dishes. The clear message here is that cooking is fun, satisfying and rewarding. Food brings us together, food is a topic everyone has something to say about. A good meal lifts our spirit and the colours chosen, together with the overall layout of the page, invite the user to stick around and explore.
+The color palettes, dark earthy tones, are used throughout the project. The earth in which vegetables grow is auburn, the plants that grow fruits are green and color of the kitchen staff is white. The colors stand in a wonderful contrast to the bright and colourful images of the dishes. The clear message here is that cooking is fun, satisfying and rewarding. Food brings us together, food is a topic everyone has something to say about. A good meal lifts our spirit and the colours chosen, together with the overall layout of the page, invite the user to stick around and explore.
 
 
 ## Landing page
@@ -181,7 +181,7 @@ The `rating` and `comment` section at the bottom of the page allow the user to r
 
 ### **Ingredients List**
    - Clearly organized and formatted.
-   - Includes exact quantities for easy repition of the recipe
+   - Includes exact quantities for easy repetition of the recipe
    - Differentiates between the main ingredients and additional components of the dish
 
 ### **Preparation Steps**
@@ -227,20 +227,20 @@ The `rating` and `comment` section at the bottom of the page allow the user to r
 The **About Me** page of *The Travelling Wooden Spoon* serves as an introduction to the blog's creator. It provides insight into my background, passions, and the inspirations behind my journey. The page is structured to offer a personal, engaging narrative while guiding visitors through the main themes of the blog telling them what to expect. It sets the tone for the rest of the blog, inspiring curiosity and engagement.
 
 ## Key Features
-- **Image**: Sectoin for the profile iamge
+- **Image**: Section for the profile iamge
 - **Personal & Engaging**: Written in a warm, narrative style to connect with the audience.
 - **Structured & Readable**: Sections are clearly divided, making it easy to navigate.
 - **Call to Action**: Encourages interaction and exploration of the blog.
 
 ## Maintenance:
-- The "about Me"-page is maintained through the Admin Panel where the blog creator is able to add or change the profile picture as well as the sontent.
+- The "about Me"-page is maintained through the Admin Panel where the blog creator is able to add or change the profile picture as well as the content.
 
 ![About Me](readme_media/about_me.png)
 
 
 ## Weekly Tip
 
-The **Weekly Tip** page provides visitors with helpful culinary tips and insights, updated regularly by the blog creator. This section enhances user engagement by offering practical kitchen knowledge, from measurement conversions to ingredient substitutions. The page is structured to present visually engaging content alongside well-formatted textual explanations. It offers a dynamic way to keep users engaged with fresh and valuable kitchen insights with another option to sign up for the Newslleter provided at the bottom. 
+The **Weekly Tip** page provides visitors with helpful culinary tips and insights, updated regularly by the blog creator. This section enhances user engagement by offering practical kitchen knowledge, from measurement conversions to ingredient substitutions. The page is structured to present visually engaging content alongside well-formatted textual explanations. It offers a dynamic way to keep users engaged with fresh and valuable kitchen insights with another option to sign up for the newsletter provided at the bottom. 
 With **easy maintenance through the Admin Panel** and enhanced styling via **Crispy Bootstrap**, it ensures a visually appealing and informative experience for all visitors.
 
 ## Structure & Features
@@ -370,9 +370,9 @@ Example:
 
 - Option to comment on "Weekly Tip" - Newsletter
 
-- Subpage including the culinary travel diary
+- A subpage including the culinary travel diary
 
-- Subpage including a BMI Calculator and more information surrounding this topic
+- A subpage including a BMI calculator and more information on this topic
 
 ---
 ---
@@ -675,7 +675,7 @@ Together with my test users (age 25 - 74) I reviewed the content on different de
 
 
 7. **Blog Detail View**
-    - **Issue:** blog_detail needed to reuse recipe_detail.html toavoid having to create another template after amending the Blogpost model to fix the problem of new posts added not automatically being displayed in Latest-Blogpost-Section on Homepage
+    - **Issue:** blog_detail needed to reuse recipe_detail.html to avoid having to create another template after amending the Blogpost model to fix the problem of new posts added not automatically being displayed in Latest-Blogpost-Section on Homepage
     - **Solution:** Updated the blog_detail view to pass relevant data dynamically.
 
 
@@ -762,7 +762,7 @@ Steps for deployement
     - `pip3 install django-crispy-forms~=2.0 crispy-bootstrap5~=0.7`
     - `pip3 install cloudinary~=1.36.0 dj3-cloudinary-storage~=0.0.6 urllib3~=1.26.15`
 
-- Set up environment variables: create a .env - file
+- Set up environment variables: create a .env file
   DATABASE_URL=<your-database-url>
   CLOUDINARY_URL=<your-cloudinary-url>
   SECRET_KEY=<your-secret-key>
