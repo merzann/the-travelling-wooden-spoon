@@ -215,7 +215,7 @@ a.scroll-down i {
 
 
 /* Card Spacing and Responsiveness */
- .card {
+.card {
     border: none;
     border-radius: 10px;
     overflow: hidden;
@@ -230,12 +230,6 @@ a.scroll-down i {
 /* Custom carousel and recipe styles */
 .custom-recipe-col {
     transition: transform 0.3s ease-in-out;
-}
-
-.card {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
 }
 
 .carousel-control-prev, .carousel-control-next {

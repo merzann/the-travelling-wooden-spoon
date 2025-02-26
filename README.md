@@ -704,13 +704,52 @@ Together with my test users (age 25 - 74) I reviewed the content on different de
 -> no known bugs remaining; all parts of the application worked as expected during manual testing
 
 
-### Validator Testing:
+## Validator Testing
 
-W3C CSS: no errors detected (no option to create URL link to paste here)
-W3C HTML: multiple errros returned across all files caused by Django templating language
-JSHint: no errors detected
+#### **Known HTML Validation Issues**
 
-### Automated Testing
+During W3C validation, several HTML errors were detected, primarily related to deprecated attributes, invalid nesting of elements, and redundant styling tags. These issues arise because the content
+
+- About page
+- Weekly Tip page
+- Recipe_detail page
+
+is inserted via the Django Admin Panel using Summernote, a WYSIWYG editor. Since Summernote automatically generates and formats the HTML when content is entered, the resulting code includes elements and attributes that do not fully comply with modern HTML5 standards. As this content is dynamically stored in the database and rendered with {% bio|safe %}, direct manual corrections are outside my control.
+
+If this project were being further developed in the future, implementing a content sanitization process (e.g., using BeautifulSoup) would be the go-for solution to clean and standardize the generated HTML to ensure the overall styling remains in place.
+
+#### **HTML errors detected and fixed**
+
+- **main** element appears as a descendant of the **main** element on homepage after implementing the DJango messages block globally in base.html
+  - solved by deleteing the **main** element in index.html
+
+- **main** element appears as a descendant of the **main** element on category page and recipe_detail page after implementing the DJango messages block globally in base.html
+  - solved by replacing the **main** element with a more semantical **article** element
+
+
+#### **Known CSS Validation Issues**
+
+- W3C validator is unable to fetch the specified Google Fonts URL. The Bad Request part indicates that the request made to Google Fonts might be incorrectly formatted or not supported by the validator. W3C CSS Validator is known for issues with retrieving CSS files from Google Fonts, CDNs, or private URLs.
+
+- multiple warnings caused by Bootstrap styles added to this project
+  - CSS variables, e.g. Vendor pseudo and extension elements, are currently not statically checked due to their dynamic nature
+  - deprecated properties used and values not compliant but supported by browsers
+
+
+#### **CSS errors detected and fixed**
+
+[![Valid CSS](readme_media/vcss.png)] no errors detected in style.css
+
+[Validate My CSS](https://jigsaw.w3.org/css-validator/validator?uri=https://the-travelling-wooden-spoon-499c1c443de1.herokuapp.com)
+
+
+#### **Javascript errors detected and fixed**
+
+- used tool: JSHint
+- no errors detected
+- warning caused by the use of arrow functions only avaialbale in ES6
+
+## Automated Testing
 
 - PEP8
     - installed and ran .flake8 to get a list of linter violations
