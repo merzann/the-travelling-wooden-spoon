@@ -86,7 +86,6 @@ class HomepageFeature(models.Model):
         on_delete=models.CASCADE,
         related_name="featured",
     )
-    excerpt = models.TextField(max_length=300)
 
     def __str__(self):
         return f"Featured: {self.recipe.title}"

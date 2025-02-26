@@ -73,7 +73,7 @@ Each section is designed with both desktop and mobile responsiveness in mind, en
 
 ### Hero Section
 
-✨ First Impressions Matter
+! First Impressions Matter !
 - The **hero section** is the first thing users see upon landing on the homepage.
 - It features a **beautiful morning kitchen scene** with a steaming coffee pot, sunlight streaming through a window, and a cup of coffee in the foreground.
 - The **blog name**, *The Travelling Wooden Spoon*, is displayed in **large, elegant typography**.
@@ -136,7 +136,7 @@ Each card showcases:
 - **Key attributes** such as health benefits, popularity, and preparation time
 
 
-### 🎡 Carousel Layout
+### Carousel Layout
 To enhance user interaction, the **Category Page** features a **carousel layout**. This serves two primary purposes:
 
 1. **Seamless Browsing Experience** – The cards transition smoothly, allowing users to explore dishes effortlessly.
@@ -245,23 +245,23 @@ With **easy maintenance through the Admin Panel** and enhanced styling via **Cri
 
 ## Structure & Features
 
-### 📸 **Featured Image**
+### **Featured Image**
 - A **prominent image** related to the weekly tip is displayed at the top.
 - The image can be **updated through the Admin Panel**.
 
-### 📝 **Weekly Tip Content**
+### **Weekly Tip Content**
 - A **headline** introduces the week's tip in a bold, readable format.
 - The main content includes:
   - A **detailed explanation** of the tip.
   - **Practical kitchen advice**
 
-### ⚙️ **Admin Panel Maintenance**
+### **Admin Panel Maintenance**
 - The **blog creator** can update the page via the **Admin Panel**, enabling:
   - **Image modifications**.
   - **Content updates** for the weekly tip.
   - **Enhanced styling and formatting** for better readability.
 
-### 📌 **Additional Functionalities**
+### **Additional Functionalities**
 - Content is **dynamically updated** on a weekly basis.
 - A **publication timestamp** is displayed at the bottom.
 - A **newsletter sign-up section** is included at the bottom, allowing users to subscribe for regular updates.
@@ -273,7 +273,7 @@ With **easy maintenance through the Admin Panel** and enhanced styling via **Cri
 
 ## Navigation Bar & Footer
 
-### 🔝 Navigation Bar
+### Navigation Bar
 - The **navigation bar** is positioned at the top of the page and features a **dark background** with clearly visible menu options.
 
 - **Menu Items:**
@@ -315,7 +315,7 @@ With **easy maintenance through the Admin Panel** and enhanced styling via **Cri
 
 The message banner is positioned at the top of the page, directly under the navigation bar, to provide users with clear feedback on actions performed.
 
-✅ Success Messages
+Success Messages
 
 Displayed in a green notification banner.
 
@@ -331,7 +331,7 @@ Example:
 
 ![Success Message](readme_media/success_message.png)
 
-❌ Failure Messages
+Failure Messages
 
 Displayed in a red notification banner.
 
