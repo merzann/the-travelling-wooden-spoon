@@ -113,6 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_FORMS = {
+    "signup": "my_project.forms.CustomSignupForm",
+}
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
